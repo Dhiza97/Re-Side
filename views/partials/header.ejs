@@ -15,7 +15,7 @@
 <body>
  <div class="main-container">
     <nav>
-        
+
         <ul class="links">
             <li><a href="">Home</a></li>
             <li><a href="/auth/about">About</a></li>
@@ -32,24 +32,22 @@
 
         <div class="account">
             <div class="login">
-                <% if (isAuthenticated) { %>
                     <div class="dropdown">
-                        <button>
+                        <!-- <button>
                             <img src="/assets/icon-user-circle-alt.png" alt="">
-                            <a href="/profile"><%= fullName %></a>
-                        </button>
+                            <a href="/profile"><%=  %></a>
+                        </button> -->
                         <div class="dropdown-content">
                             <a href="/auth/dashboard">Dashboard</a>
                             <a href="/auth/logout">Logout</a>
                         </div>
                     </div>
-                <% } else { %>
                     <button>
                         <img src="/assets/icon-user-circle-alt.png" alt="">
                         <a href="/auth/login">Login/Register</a>
                     </button>
-                <% } %>
             </div>
+            
             <div class="add-btn">
                 <button class="add-list" onclick="location.href='/auth/addListingForm'">
                     <img src="/assets/reshot-icon-house-xj53qbrvtc-1.png" alt="">

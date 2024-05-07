@@ -1,5 +1,9 @@
 import express from 'express'
-import User from './userSchema.js';
-import Agent from './agentSchema.js';
-
 const router = express.Router()
+
+router.get('/', (req, res) => {
+    // Render home.ejs
+    res.render('home');
+  });
+
+  export default router

@@ -197,7 +197,7 @@ body {
 
 .center h1 {
     text-align: center;
-    padding: 0 0 20px 0;
+    padding: 0 0 5px 0;
     border-bottom: 1px solid silver;
 }
 
@@ -306,7 +306,6 @@ button[type="submit"]:hover {
 /* Registration Page */
 
 .register {
-    margin-top: 300px;
     width: 500px;
 }
 
@@ -320,8 +319,8 @@ input[type="file"] {
 
 input[type="file"]:focus-within::file-selector-button,
 input[type="file"]:focus::file-selector-button {
-  outline: 2px solid #0964b0;
-  outline-offset: 2px;
+    outline: 2px solid #0964b0;
+    outline-offset: 2px;
 }
   
 input[type="file"]::file-selector-button {
@@ -372,10 +371,6 @@ input[type="file"]::file-selector-button:active {
     background-color: #e5e7eb;
 }
 
-.radio_field {
-    margin-left: 2px;
-}
-
 .register-btn {
     margin-top: 20px;
 }
@@ -397,6 +392,16 @@ input[type="file"]::file-selector-button:active {
     width: 800px;
 }
 
+select {
+    width: 100%;
+    height: 3em;
+    border: none;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    color: #0964b0;
+}
+
 .typewriter h1 {
     overflow: hidden; /* Ensures the content is not revealed until the animation */
     border-right: .15em solid #3a0ca3; /* The typwriter cursor */
@@ -404,10 +409,10 @@ input[type="file"]::file-selector-button:active {
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */
     animation: 
-      typing 1.5s steps(40, end),
-      blink-caret .75s step-end infinite;
+    typing 1.5s steps(40, end),
+    blink-caret .75s step-end infinite;
 }
-  
+
   /* The typing effect */
 @keyframes typing {
     from { width: 0 }

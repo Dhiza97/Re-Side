@@ -1,9 +1,18 @@
+// import express and User model
 import express from 'express';
 import User from '../models/userSchema.js';
 
+// create a router instance
 const router = express.Router();
 
-router.post('/signup', async (req, res) => {
+// GET route to render the signup page
+router.get('/', (req, res) => {
+    // Render signup.ejs
+    res.render('signup');
+});
+
+// POST route to handle form submissions for signup
+router.post('/', async (req, res) => {
     try {
         // Extract user data from the request body
         const { firstName, lastName, email, password } = req.body;
@@ -24,4 +33,5 @@ router.post('/signup', async (req, res) => {
     }
 });
 
+// export the router
 export default router;

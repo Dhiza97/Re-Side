@@ -17,13 +17,13 @@
             <h1>Register</h1>
             <form action="/auth/register" method="POST">
                 <div class="txt_field">
-                    <input type="text" name="fName" required>
+                    <input type="text" name="firstName" required>
                     <span></span>
                     <label for="">First Name</label>
                 </div>
 
                 <div class="txt_field">
-                    <input type="text" name="lName" required>
+                    <input type="text" name="lastName" required>
                     <span></span>
                     <label for="">Last Name</label>
                 </div>
@@ -47,12 +47,12 @@
                     </label>
                 </div> -->
 
-                <div class="radio_field">
+                <div class="select_field">
                     <select id="role" name="role">
-                        <option value="" disabled>Select a Role</option>
+                        <option value="" disabled selected>Select a Role</option>
                         <option value="agent">Agent</option>
                         <option value="customer">Customer</option>
-                      </select>
+                    </select>
                 </div>
                 
                 <!-- <div class="txt_field">

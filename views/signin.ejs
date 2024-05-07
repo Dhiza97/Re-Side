@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Re-Side Login</title>
+        <link rel="stylesheet" href="/css/login.css">
+    </head>
+    <body>
+        <ul class="background">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+        <div class="form-container">
+            <div class="log-img">
+                <img src="/assets/log.jpg" alt="">
+            </div>
+            <div class="center">
+                <div class="logo">
+                    <img src="/assets/logo.png" alt="">
+                </div>
+                <h1>Login</h1>
+
+                <form action="/auth/login" method="POST">
+                    <div class="txt_field">
+                        <input type="email" name="email" required>
+                        <span></span>
+                        <label for="">Email</label>
+                    </div>
+                    <div class="txt_field">
+                        <input type="password" name="password" required>
+                        <span></span>
+                        <label for="">Password</label>
+                    </div>
+
+                    <% if (error && error.length > 0) { %>
+                        <div class="error">
+                            <%= error[0] %>
+                        </div>
+                    <% } %>
+
+                    <button type="submit">Login</button>
+
+                    <div class="signup_link">
+                        Don't have an account? <a href="/auth/register">Sign Up</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

@@ -22,7 +22,7 @@ body {
     color: #fff;
     overflow: hidden;
     transition: all 0.5s linear;
-    background: #3a0ca3;
+    background: #3a0ca3; 
 }
 
 .dash-sidebar:hover {

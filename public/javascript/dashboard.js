@@ -10,7 +10,7 @@ for(let i = 0; i < li_elements.length; i++) {
         var li_value = this.getAttribute('data-li')
 
         item_elements.forEach(function(item) {
-            item.style.display = 'none'
+            item.style.display = 'none' 
         })
                 
         if(li_value == 'dashboard') {

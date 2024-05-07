@@ -28,12 +28,12 @@ numbers.forEach((number, index) => {
     let currentValue = parseInt(number.textContent);
     
     // Generate a random interval between 500ms and 2000ms
-    const interval = Math.floor(Math.random() * (2000 - 500 + 1)) + 500;
+    const interval = Math.floor(Math.random() * (2000 - 500 + 1)) + 500
 
     // Set an interval to increment the number
     setInterval(() => {
         // Increment the number by a random value between 1 and 5
-        const increment = Math.floor(Math.random() * 5) + 1;
+        const increment = Math.floor(Math.random() * 5) + 1
         currentValue += increment;
 
         // Update the number text content
@@ -42,10 +42,10 @@ numbers.forEach((number, index) => {
 });
 
 // Get the button:
-let mybutton = document.getElementById("myBtn");
+let mybutton = document.getElementById("myBtn")
 
 // When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
+window.onscroll = function() {scrollFunction()}
 
 function scrollFunction() {
     if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {

@@ -30,9 +30,9 @@ body {
     transition: 0.5s;
 }
 
-.dash-logo {
-    height: 80px;
-    padding: 16px;
+.dash-logo img {
+    width: 80px;
+    margin: 20px 0px 50px -10px;
 }
 
 .dash-menu {

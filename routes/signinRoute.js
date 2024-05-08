@@ -4,8 +4,11 @@ import User from '../models/userSchema.js';
 
 const router = express.Router();
 
-
-router.post('/signin', async (req, res) => {
+router.get('/', (req, res) => {
+    // Render signin.ejs
+    res.render('signin');
+})
+router.post('/', async (req, res) => {
     try {
         const { email, password} = req.body
 

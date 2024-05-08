@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+<body>
+    <div class="dash-sidebar">
+        <div class="dash-logo"></div>
+        <ul class="dash-menu">
+            <li data-li='dashboard' class="active">
+                <a href="/dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li data-li='profile'>
+                <a href="#profile">
+                    <i class="fas fa-user"></i>
+                    <span>Profile</span>
+                </a>
+            </li>
+            <li data-li="statistics">
+                <a href="#statistics">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Statistics</span>
+                </a>
+            </li>
+            <li data-li="career">
+                <a href="#career">
+                    <i class="fas fa-briefcase"></i>
+                    <span>Career</span>
+                </a>
+            </li>
+            <li data-li="faq">
+                <a href="#faq">
+                    <i class="fas fa-question-circle"></i>
+                    <span>FAQ</span>
+                </a>
+            </li>
+            <li data-li="testimonials">
+                <a href="#testimonials">
+                    <i class="fas fa-star"></i>
+                    <span>Testimonials</span>
+                </a>
+            </li>
+            <li data-li="settings">
+                <a href="#settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </a>
+            </li>
+            <li class="logout">
+                <a href="/auth/">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span></span>
+                <h2>Dashboard</h2>
+            </div>
+            <div class="user--info">
+                <div class="search--box">
+                    <i class="fa fa-search"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+            </div>
+        </div>
+
+        <div class="item dashboard">
+            <div class="item-info">
+                
+                <div class="tabular--wrapper">
+                    <h3 class="main--title">Finance data</h3>
+                    <div class="table--container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Property Type</th>
+                                    <th>State</th>
+                                    <th>Amount</th>
+                                    <th>Contact Name</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2024-01-01</td>
+                                    <td>Expenses</td>
+                                    <td>Office Supplies</td>
+                                    <td>$250</td>
+                                    <td>Office Expenses</td>
+                                    <td>Pending</td>
+                                    <td>
+                                        <button>Edit</button>
+                                        <button>Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="7">Total: $1,000</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item profile" id="profile" style="display: none;">
+            <div class="item-info">
+                <% if (locals.success) { %>
+                    <div class="alert alert-success"><%= locals.success %></div>
+                <% } %>
+                <% if (locals.error) { %>
+                    <div class="alert alert-danger"><%= locals.error %></div>
+                <% } %>
+                <h2 class="header--title">Profile</h2>
+                
+                <form id="profileForm" action="/auth/edit" method="POST">
+
+                    <div class="form-group">
+                        <label for="fullName">Full Name:</label>
+                        <input type="text" id="fullName" name="fullName" value="" readonly>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" value="" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phoneNumber">Phone Number:</label>
+                        <input type="text" id="phoneNumber" name="phoneNumber" value="" readonly>
+                    </div>
+
+                    <div class="radio_field">
+                        <span>Role:</span>
+                        <input type="radio" id="agent" name="role" value="agent" readonly>
+                        <label for="agent">Agent</label>
+                        <input type="radio" id="customer" name="role" value="customer" readonly>
+                        <label for="customer">Customer</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" name="address" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city">City:</label>
+                        <input type="text" id="city" name="city" value="" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="state">State:</label>
+                        <input type="text" id="state" name="state" value="" readonly>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="zipCode">Zip Code:</label>
+                        <input type="text" id="zipCode" name="zipCode" value="" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="country">Country:</label>
+                        <input type="text" id="country" name="country" value="" readonly>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="occupation">Occupation:</label>
+                        <input type="text" id="occupation" name="occupation" value="" readonly>
+                    </div>
+                    <!-- Add more fields as needed -->
+                    <button type="button" class="btn btn-secondary" id="editProfileBtn">Edit Profile</button>
+                    <button type="submit" class="btn btn-primary" id="saveChangesBtn" style="display: none;">Save Changes</button>
+                    <button type="button" class="btn btn-secondary" id="cancelEditBtn">Cancel</button>
+                </form>
+                
+            </div>
+        </div>
+
+        <div class="item statistics" id="statistics" style="display: none;">
+            <div class="item-info">
+                <h2>Statistics</h2>
+            </div>
+        </div>
+
+        <div class="item career" id="career" style="display: none;">
+            <div class="item-info">
+                <h2>Career</h2>
+            </div>
+        </div>
+        <div class="item faq" id="faq" style="display: none;">
+            <div class="item-info">
+                <h2>FAQ</h2>
+            </div>
+        </div>
+        
+        <div class="item testimonials" id="testimonials" style="display: none;">
+            <div class="item-info">
+                <h2>Testimonials</h2>
+            </div>
+        </div>
+
+        <div class="item settings" id="settings" style="display: none;">
+            <div class="item-info">
+                <h2>Settings</h2>
+            </div>
+        </div>
+        
+    </div>
+
+    <script src="/javascript/dashboard.js"></script>
+    
+</body>
+</html>

@@ -23,12 +23,14 @@ import homeRoute from './routes/homeRoute.js';
 import signupRoute from './routes/signupRoute.js';
 import signinRoute from './routes/signinRoute.js';
 import signupagentRoute from './routes/signupagentRoute.js'
+import dashboard from './routes/dashboardRoute.js'
 
 // Define routes
 app.use('/', homeRoute);
 app.use('/signup', signupRoute);
 app.use('/signin', signinRoute);
 app.use('/signupagent', signupagentRoute);
+app.use('/dashboard', dashboard);
 
 
 const PORT = process.env.PORT || 5050

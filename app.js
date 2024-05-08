@@ -9,7 +9,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }))
 
 // Serve static files from the "public" directory
-app.use(express.static('public'));
+app.use(express.static('public'))
 
 dotenv.config()
 
@@ -22,11 +22,13 @@ mongoose.connect(process.env.DB_CONNECTION_STRING)
 import homeRoute from './routes/homeRoute.js';
 import signupRoute from './routes/signupRoute.js';
 import signinRoute from './routes/signinRoute.js';
+import signupagentRoute from './routes/signupagentRoute.js'
 
 // Define routes
 app.use('/', homeRoute);
 app.use('/signup', signupRoute);
 app.use('/signin', signinRoute);
+app.use('/signupagent', signupagentRoute);
 
 
 const PORT = process.env.PORT || 5050

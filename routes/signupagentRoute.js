@@ -1,6 +1,6 @@
 // import express and User model
 import express from 'express';
-import User from '../models/userSchema.js';
+import User from '../models/agentSchema.js';
 
 // create a router instance
 const router = express.Router();
@@ -12,7 +12,7 @@ router.get('/', (req, res) => {
     const defaultRole = User.schema.path('role').defaultValue
 
     // Render signup.ejs
-    res.render('signup', { defaultRole });
+    res.render('signupAgent', { defaultRole });
 });
 
 // POST route to handle form submissions for signup
@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
         // Save the user to the database
         await user.save();
         // Redirect the user to the home page
-        res.redirect('/');
+        res.redirect('/dashboard');
     } catch (error) {
         console.error('Error during signup:', error);
         res.status(500).send('Internal Server Error');

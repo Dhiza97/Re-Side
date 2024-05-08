@@ -18,8 +18,9 @@ const userSchema = new mongoose.Schema({
         match: [/\S+@\S+\.\S+/, 'is invalid'],  
     },
     role: { 
-        type: String, 
-        default: 'user' 
+        type: String,
+        required: true,
+        default: 'Customer' 
     },
     password: {  
         type: String,  
@@ -41,11 +42,6 @@ userSchema.pre('save', async function(next) {
         next(error);
     }
 });
-
-// Compare password method
-userSchema.methods.comparePassword = async function(candidatePassword) {
-    return bcrypt.compare(candidatePassword, this.password);
-};
 
 const User = mongoose.model('User', userSchema);
 

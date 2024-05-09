@@ -47,6 +47,10 @@
                         <label for="">Password</label>
                     </div>
 
+                    <% if (errorMessage) { %>
+                        <p style="color: red;"><%= errorMessage %></p>
+                    <% } %>
+
                     <button type="submit">Login</button>
 
                     <div class="signup_link">

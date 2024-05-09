@@ -1,4 +1,5 @@
 import express from 'express'
+import session from 'express-session'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
@@ -12,6 +13,13 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'))
 
 dotenv.config()
+
+// Set up session middleware
+app.use(session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false
+}));
 
 // Database Connection
 mongoose.connect(process.env.DB_CONNECTION_STRING)

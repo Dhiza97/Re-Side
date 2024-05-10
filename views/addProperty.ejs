@@ -1,5 +1,13 @@
-<%- include('partials/header', { fullName: fullName }) %>
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    
     <div class="addLisitng">
         <div class="addForm-container">
             <div>
@@ -7,7 +15,12 @@
             </div>
             
             <div>
-                <form action="/auth/submitProperty" method="POST" enctype="multipart/form-data">
+                <form action="/addProperty" method="POST" enctype="multipart/form-data">
+                    <div class="form-item">
+                        <label for="propertyName">Property Name:</label><br>
+                        <input type="text" id="propertyName" name="propertyName" required>
+                    </div>
+                    
                     <div class="form-item">
                         <label for="propertyType">Property Type:</label><br>
                         <select id="propertyType" name="propertyType">
@@ -16,6 +29,11 @@
                             <option value="apartment">Apartment</option>
                             <option value="condo">Condo</option>
                         </select>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="purchaseType">Purchase Type:</label><br>
+                        <input type="text" id="purchaseType" name="purchaseType" placeholder="'Rent' or 'Sale'" required>
                     </div>
                     
                     <div class="form-item">
@@ -84,4 +102,5 @@
         </div>
     </div>
 
-<%- include('partials/footer') -%>
+</body>
+</html>

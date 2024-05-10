@@ -17,6 +17,10 @@ const agentSchema = new mongoose.Schema({
         required: [true, "can't be blank"],  
         match: [/\S+@\S+\.\S+/, 'is invalid'],  
     },
+    phone: {
+        type: Number,
+        required: true
+    },
     role: { 
         type: String, 
         default: 'Agent',

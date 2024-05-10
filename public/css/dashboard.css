@@ -118,6 +118,28 @@ body {
     gap: 1rem;
 }
 
+.add-list {
+    background-color: #3a0ba3;
+    color: white;
+    cursor: pointer;
+    border: none;
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-size: .9rem;
+    display: flex;
+    align-items: center;
+}
+
+.add-btn .text {
+    flex: 1;
+}
+
+.add-list img {
+    margin-right: 8px;
+    width: 30px;
+    height: 30px;
+}
+
 .search--box {
     background: rgb(237, 237, 237);
     border-radius: 15px;

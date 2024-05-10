@@ -139,27 +139,6 @@ nav ul li:hover::after {
     display: block;
 }
 
-.account .add-list {
-    background-color: #3a0ba3;
-    color: white;
-    cursor: pointer;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 1rem;
-    display: flex;
-    align-items: center;
-}
-
-.account .add-btn .text {
-    flex: 1;
-}
-
-.account .add-list img {
-    margin-right: 8px;
-    width: 18px;
-}
-
 /* Display */
 .display-1 {
     max-width: 100%;

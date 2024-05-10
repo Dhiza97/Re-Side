@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
     const firstName = req.session.firstName || null
 
     // Render dashboard.ejs with agent details
-    res.render('dashboard', { agent })
+    res.render('dashboard', { agent, firstName })
 });
 
 export default router

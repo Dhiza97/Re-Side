@@ -27,6 +27,7 @@ export const storeAgentDetailsInSession = async (req, res, next) => {
         if (agent) {
             // Store agent details in session
             req.session.agent = agent;
+            req.session.firstName = agent.firstName;
         }
         next();
     } catch (error) {

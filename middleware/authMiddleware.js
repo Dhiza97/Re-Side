@@ -20,17 +20,48 @@ export const verifyToken = (req, res, next) => {
 
 
 // Middleware to store agent details in session
-export const storeAgentDetailsInSession = async (req, res, next) => {
-    try {
-        const agentEmail = req.agentEmail; // Assuming you have the agent's email from authentication
-        const agent = await Agent.findOne({ email: agentEmail });
-        if (agent) {
-            // Store agent details in session
-            req.session.agent = agent;
-            req.session.firstName = agent.firstName;
-        }
+// export const storeAgentDetailsInSession = async (req, res, next) => {
+//     try {
+//         const agentEmail = req.agentEmail; // Assuming you have the agent's email from authentication
+//         const agent = await Agent.findOne({ email: agentEmail });
+//         if (agent) {
+//             // Store agent details in session
+//             req.session.agent = agent;
+//             req.session.firstName = agent.firstName;
+//         }
+//         next();
+//     } catch (error) {
+//         next(error);
+//     }
+// };
+
+// Authentication middleware function
+// export const authenticateAgent = async (req, res, next) => {
+//     const { email, password } = req.body;
+
+//     try {
+//         const agent = await Agent.findOne({ email });
+//         if (!agent) {
+//             return res.render('signin', { errorMessage: 'Invalid email or password' });
+//         }
+
+//         const isPasswordValid = await bcrypt.compare(password, agent.password);
+//         if (!isPasswordValid) {
+//             return res.render('signin', { errorMessage: 'Invalid email or password' });
+//         }
+
+//         req.agentEmail = agent.email;
+//         next();
+//     } catch (error) {
+//         next(error);
+//     }
+// };
+
+// Middleware to check if agent is logged in
+export const checkIfAgentLoggedIn = (req, res, next) => {
+    if (req.session.agent) {
         next();
-    } catch (error) {
-        next(error);
+    } else {
+        res.redirect('/signin');
     }
 };

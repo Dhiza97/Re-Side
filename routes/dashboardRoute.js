@@ -1,11 +1,11 @@
 import express from 'express'
-import { storeAgentDetailsInSession } from '../middleware/authMiddleware.js';
+// import { storeAgentDetailsInSession } from '../middleware/authMiddleware.js';
 import Agent from '../models/agentSchema.js'
 
 const router = express.Router()
 
 // Apply middleware to store agent details in session
-router.use(storeAgentDetailsInSession);
+// router.use(storeAgentDetailsInSession);
 
 router.get('/', (req, res) => {
 

@@ -1,4 +1,5 @@
 import mongoose from 'mongoose'
+import Agent from '../models/agentSchema.js'
 
 const fileSchema = new mongoose.Schema ({
     filename: String,
@@ -8,18 +9,18 @@ const fileSchema = new mongoose.Schema ({
 })
 
 const propertySchema = new mongoose.Schema ({
-    name: {
+    PropertyName: {
         type: String,
         required: true
     },
     PropertyType: {
         type: String,
-        enum: [ house, apartment, condo ],
+        enum: [ 'house', 'apartment', 'condo' ],
         required: true
     },
     purchaseType: {
         type: String,
-        enum: [ rent, sale ],
+        enum: [ 'rent', 'sale' ],
         required: true
     },
     address: {
@@ -53,7 +54,7 @@ const propertySchema = new mongoose.Schema ({
         type: Number,
         required: true
     },
-    Bathroom: {
+    bathroom: {
         type: Number,
         required: true
     },
@@ -71,7 +72,7 @@ const propertySchema = new mongoose.Schema ({
     },
     agent: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Agent'
+        ref: Agent
     }
 })
 

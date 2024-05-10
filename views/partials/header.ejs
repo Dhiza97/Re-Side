@@ -36,9 +36,15 @@
                     <button>
                         <img src="/assets/icon-user-circle-alt.png" alt="">
                         <% if (firstName) { %>
-                        <a href="/profile"><%= firstName %></a>
+                        <div class="dropdown">
+                            <span class="dropbtn"><a href="/profile"><%= firstName %></a></span>
+                            <div class="dropdown-content">
+                            <a href="#">Profile</a>
+                            <a href="#">Logout</a>
+                            </div>
+                        </div>
                         <% } else { %>
-                        <a href="/selectlog">Login/Register</a>
+                        <a href="/signin">Login/Register</a>
                         <% } %>
                     </button>
                 </div>

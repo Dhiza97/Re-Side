@@ -75,6 +75,9 @@
                 <h2>Dashboard</h2>
             </div>
             <div class="user--info">
+                <% if (agent) { %>
+                <span>Welcome, <%= agent.firstName %></span>
+                <% } %>
                 <div class="search--box">
                     <i class="fa fa-search"></i>
                     <input type="text" placeholder="Search">

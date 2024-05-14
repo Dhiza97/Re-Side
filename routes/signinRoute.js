@@ -24,12 +24,17 @@ router.post('/', async (req, res) => {
             if (!agent) {
                 return res.render('signin', { errorMessage: 'Invalid email or password' });
             }
-        
-            // Perform authentication logic for agents
-            // For simplicity, assume authentication logic here
+
+            // Compare the provided password with the hashed password stored in the database
+            const isPasswordValid = await bcrypt.compare(password, agent.password);
+            if (!isPasswordValid) {
+                // If passwords don't match, return error message
+                return res.render('signin', { errorMessage: 'Invalid email or password' });
+            }
 
             return res.redirect('/dashboard');
         }
+        
         // Compare the provided password with the hashed password stored in the database
         const isPasswordValid = await bcrypt.compare(password, user.password);
         if (!isPasswordValid) {
@@ -38,9 +43,6 @@ router.post('/', async (req, res) => {
         }
 
         const token = generateToken({ userId: user._id, email: user.email, role: user.role })
-
-        // Perform authentication logic for users
-        // For simplicity, assume authentication logic here
 
         // Store user's first name in session
         req.session.firstName = user.firstName;

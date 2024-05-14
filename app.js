@@ -42,7 +42,7 @@ app.use('/signin', signinRoute);
 app.use('/signupagent', signupagentRoute);
 app.use('/dashboard', dashboard);
 app.use('/selectlog', selectlog);
-app.use('/addproperty', addPropertyRoute);
+app.use('/properties/add', addPropertyRoute);
 
 
 const PORT = process.env.PORT || 5050

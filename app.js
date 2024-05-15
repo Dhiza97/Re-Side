@@ -37,6 +37,7 @@ import signupagentRoute from './routes/signupagentRoute.js'
 import dashboard from './routes/dashboardRoute.js'
 import selectlog from './routes/selectlogRoute.js'
 import addPropertyRoute from './routes/addPropertyRoute.js'
+import logoutRoute from './routes/logoutRoute.js'
 
 // Define routes
 app.use('/', homeRoute);
@@ -46,6 +47,7 @@ app.use('/signupagent', signupagentRoute);
 app.use('/dashboard', dashboard);
 app.use('/selectlog', selectlog);
 app.use('/properties/add', addPropertyRoute);
+app.use('/logout', logoutRoute);
 
 
 const PORT = process.env.PORT || 5050

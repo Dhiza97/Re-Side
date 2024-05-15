@@ -18,7 +18,10 @@ dotenv.config()
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 7 // 7 days
+    }
 }));
 
 // Database Connection

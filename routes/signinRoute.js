@@ -32,6 +32,9 @@ router.post('/', async (req, res) => {
                 return res.render('signin', { errorMessage: 'Invalid email or password' });
             }
 
+            // Store agent's first name in session
+            req.session.firstName = agent.firstName;
+
             return res.redirect('/dashboard');
         }
         

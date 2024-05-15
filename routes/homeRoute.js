@@ -9,6 +9,6 @@ router.get('/', (req, res) => {
 
     // Render home.ejs
     res.render('home', { firstName } );
-  });
+});
 
   export default router

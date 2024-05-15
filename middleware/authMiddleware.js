@@ -35,27 +35,6 @@ export const verifyToken = (req, res, next) => {
 //     }
 // };
 
-// Authentication middleware function
-// export const authenticateAgent = async (req, res, next) => {
-//     const { email, password } = req.body;
-
-//     try {
-//         const agent = await Agent.findOne({ email });
-//         if (!agent) {
-//             return res.render('signin', { errorMessage: 'Invalid email or password' });
-//         }
-
-//         const isPasswordValid = await bcrypt.compare(password, agent.password);
-//         if (!isPasswordValid) {
-//             return res.render('signin', { errorMessage: 'Invalid email or password' });
-//         }
-
-//         req.agentEmail = agent.email;
-//         next();
-//     } catch (error) {
-//         next(error);
-//     }
-// };
 
 // Middleware to check if agent is logged in
 export const checkIfAgentLoggedIn = (req, res, next) => {

@@ -34,24 +34,6 @@ const upload = multer({ storage: storage });
 
 export { upload };
 
-
-// Middleware to store agent details in session
-// export const storeAgentDetailsInSession = async (req, res, next) => {
-//     try {
-//         const agentEmail = req.agentEmail; // Assuming you have the agent's email from authentication
-//         const agent = await Agent.findOne({ email: agentEmail });
-//         if (agent) {
-//             // Store agent details in session
-//             req.session.agent = agent;
-//             req.session.firstName = agent.firstName;
-//         }
-//         next();
-//     } catch (error) {
-//         next(error);
-//     }
-// };
-
-
 // Middleware to check if agent is logged in
 export const checkIfAgentLoggedIn = (req, res, next) => {
     if (req.session.agent) {

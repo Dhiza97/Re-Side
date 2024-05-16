@@ -36,7 +36,7 @@ import signinRoute from './routes/signinRoute.js';
 import signupagentRoute from './routes/signupagentRoute.js'
 import dashboard from './routes/dashboardRoute.js'
 import selectlog from './routes/selectlogRoute.js'
-import addPropertyRoute from './routes/addPropertyRoute.js'
+import addProperty from './routes/addPropertyRoute.js'
 import logoutRoute from './routes/logoutRoute.js'
 
 // Define routes
@@ -46,7 +46,7 @@ app.use('/signin', signinRoute);
 app.use('/signupagent', signupagentRoute);
 app.use('/dashboard', dashboard);
 app.use('/selectlog', selectlog);
-app.use('/properties/add', addPropertyRoute);
+app.use('/add', addProperty);
 app.use('/logout', logoutRoute);
 
 

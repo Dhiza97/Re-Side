@@ -1,4 +1,5 @@
 import jwt from 'jsonwebtoken';
+import multer from 'multer';
 import Agent from '../models/agentSchema.js';
 
 export const generateToken = (payload) => {
@@ -17,6 +18,21 @@ export const verifyToken = (req, res, next) => {
         return res.status(403).send('Invalid token');
     }
 };
+
+
+// Multer configuration
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'uploads/');
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname);
+    }
+});
+
+const upload = multer({ storage: storage });
+
+export { upload };
 
 
 // Middleware to store agent details in session

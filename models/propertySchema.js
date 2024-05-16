@@ -1,26 +1,18 @@
-import mongoose from 'mongoose'
-import Agent from '../models/agentSchema.js'
+import mongoose from 'mongoose';
 
-const fileSchema = new mongoose.Schema ({
-    filename: String,
-    path: String,
-    mimetype: String,
-    size: Number
-})
-
-const propertySchema = new mongoose.Schema ({
-    PropertyName: {
+const propertySchema = new mongoose.Schema({
+    propertyName: {
         type: String,
         required: true
     },
-    PropertyType: {
+    propertyType: {
         type: String,
-        enum: [ 'house', 'apartment', 'condo' ],
+        enum: ['house', 'apartment', 'condo'],
         required: true
     },
     purchaseType: {
         type: String,
-        enum: [ 'rent', 'sale' ],
+        enum: ['rent', 'sale'],
         required: true
     },
     address: {
@@ -36,16 +28,15 @@ const propertySchema = new mongoose.Schema ({
         required: true
     },
     zip: {
-        type: String
+        type: Number
     },
     price: {
         type: Number,
         required: true
     },
-    photos: {
-        type: [fileSchema],
-        required: true
-    },
+    photos: [
+        String
+    ],
     description: {
         type: String,
         required: true
@@ -72,9 +63,9 @@ const propertySchema = new mongoose.Schema ({
     },
     agent: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: Agent
+        ref: 'Agent' // Assuming 'Agent' is the correct model name
     }
-})
+});
 
 const Property = mongoose.model('Property', propertySchema);
 

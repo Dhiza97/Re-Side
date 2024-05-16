@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Add Property</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
@@ -15,15 +15,15 @@
             </div>
             
             <div>
-                <form action="/properties/add" method="POST" enctype="multipart/form-data">
+                <form action="/add" method="POST" enctype="multipart/form-data">
                     <div class="form-item">
                         <label for="propertyName">Property Name:</label><br>
-                        <input type="text" id="propertyName" name="PropertyName" required>
+                        <input type="text" id="propertyName" name="propertyName" required>
                     </div>
                     
                     <div class="form-item">
                         <label for="propertyType">Property Type:</label><br>
-                        <select id="propertyType" name="PropertyType">
+                        <select id="propertyType" name="propertyType">
                             <option value="" selected disabled hidden>Select Type</option>
                             <option value="house">House</option>
                             <option value="apartment">Apartment</option>
@@ -33,7 +33,11 @@
 
                     <div class="form-item">
                         <label for="purchaseType">Purchase Type:</label><br>
-                        <input type="text" id="purchaseType" name="purchaseType" placeholder="'Rent' or 'Sale'" required>
+                        <select id="purchaseType" name="purchaseType">
+                            <option value="" selected disabled hidden>Select Type</option>
+                            <option value="sale">Sale</option>
+                            <option value="rent">Rent</option>
+                        </select>
                     </div>
                     
                     <div class="form-item">
@@ -98,9 +102,8 @@
                     <button type="submit">Add Property</button>
                 </form>
             </div>
-            
+
         </div>
     </div>
-
 </body>
 </html>

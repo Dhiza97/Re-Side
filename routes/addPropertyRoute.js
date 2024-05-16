@@ -1,19 +1,24 @@
 import express from 'express'
-import Property from '../models/propertySchema.js';
+import Property from '../models/propertySchema.js'
+import multer from 'multer'
 
-const router = express()
+const router = express.Router()
+const upload = multer({ dest: 'uploads/' })
 
-router.get('/', (req, res) => {
-    // Render Add Property Page
-    res.render('addProperty');
+// GET route to load add properties form
+router.get('/', async (req, res) => {
+    res.render('addProperty')
 })
 
-router.post('/', async (req, res) => {
-
+// POST route to add a new property
+router.post('/', upload.array('photos'), async (req, res) => {
     try {
-        // Extract property data from request body
-        const { 
-            propertyName, 
+        console.log('Request body:', req.body);
+        console.log('Uploaded files:', req.files);
+
+        // Extract property data from the request body
+        const {
+            propertyName,
             propertyType,
             purchaseType,
             address,
@@ -22,19 +27,19 @@ router.post('/', async (req, res) => {
             zip,
             price,
             description,
-            photos,
             bedroom,
             bathroom,
             agentName,
             agentEmail,
             agentPhone
-            } = req.body;
+        } = req.body;
 
-        // Validate the property data (optional)
+        // Extract uploaded photos
+        const photos = req.files.map(file => file.path);
 
-        // Create a new property document
-        const property = new Property({
-            propertyName, 
+        // Create a new property
+        const newProperty = new Property({
+            propertyName,
             propertyType,
             purchaseType,
             address,
@@ -42,8 +47,8 @@ router.post('/', async (req, res) => {
             state,
             zip,
             price,
-            description,
             photos,
+            description,
             bedroom,
             bathroom,
             agentName,
@@ -51,17 +56,13 @@ router.post('/', async (req, res) => {
             agentPhone
         });
 
-        // Associate the property with the logged-in agent
-        property.agent = req.user._id; // Assuming req.user contains the agent's information
+        // Save the new property to the database
+        const savedProperty = await newProperty.save();
 
-        // Save the property document to the database
-        await property.save();
-
-        // Redirect to the agent's dashboard or send a success response
+        // Redirect the user to the home page or any other appropriate page
         res.redirect('/dashboard');
     } catch (error) {
-        // Handle errors
-        console.error('Error creating property:', error);
+        console.error('Error adding property:', error);
         res.status(500).send('Internal Server Error');
     }
 })

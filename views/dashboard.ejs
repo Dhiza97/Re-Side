@@ -98,40 +98,41 @@
             <div class="item-info">
                 
                 <div class="tabular--wrapper">
-                    <h3 class="main--title">Finance data</h3>
+                    <h3 class="main--title">Property data</h3>
                     <div class="table--container">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Property Type</th>
-                                    <th>State</th>
-                                    <th>Amount</th>
-                                    <th>Contact Name</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>2024-01-01</td>
-                                    <td>Expenses</td>
-                                    <td>Office Supplies</td>
-                                    <td>$250</td>
-                                    <td>Office Expenses</td>
-                                    <td>Pending</td>
-                                    <td>
-                                        <button>Edit</button>
-                                        <button>Delete</button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <td colspan="7">Total: $1,000</td>
-                                </tr>
-                            </tfoot>
-                        </table>
+                        <% if (properties.length > 0) { %>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Property Name</th>
+                                        <th>Property Type</th>
+                                        <th>Purchase Type</th>
+                                        <th>Amount</th>
+                                        <th>Agent Name</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% properties.forEach(property => { %>
+                                        <tr>
+                                            <td><%= new Date(property.createdAt).toLocaleDateString() %></td>
+                                            <td><%= property.propertyName %></td>
+                                            <td><%= property.propertyType %></td>
+                                            <td><%= property.purchaseType %></td>
+                                            <td>$<%= property.price %></td>
+                                            <td><%= property.agentName %></td>
+                                            <td>
+                                                <button>Edit</button>
+                                                <button>Delete</button>
+                                            </td>
+                                        </tr>
+                                    <% }); %>
+                                </tbody>
+                            </table>
+                        <% } else { %>
+                            <p>You have no properties listed.</p>
+                        <% } %>
                     </div>
                 </div>
             </div>

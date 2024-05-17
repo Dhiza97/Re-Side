@@ -66,6 +66,8 @@ const propertySchema = new mongoose.Schema({
         ref: 'Agent',
         required: true
     }
+}, {
+    timestamps: true
 });
 
 const Property = mongoose.model('Property', propertySchema);

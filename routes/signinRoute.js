@@ -1,25 +1,39 @@
-import express from 'express'
-import bcrypt from 'bcrypt'
+import express from 'express';
+import bcrypt from 'bcrypt';
 import User from '../models/userSchema.js';
-import Agent from '../models/agentSchema.js'
+import Agent from '../models/agentSchema.js';
 import { generateToken } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
 router.get('/', (req, res) => {
     // Render signin.ejs
-    res.render('signin', {errorMessage: null});
-})
-router.post('/', async (req, res) => {
+    res.render('signin', { errorMessage: null });
+});
 
+router.post('/', async (req, res) => {
     try {
-        const { email, password} = req.body
+        const { email, password } = req.body;
 
         // Find the user by email
-        const user = await User.findOne({ email })
-    
-        // If user is not found in the user collection, check in the agent collection
-        if (!user) {
+        const user = await User.findOne({ email });
+
+        if (user) {
+            // Compare the provided password with the hashed password stored in the database
+            const isPasswordValid = await bcrypt.compare(password, user.password);
+            if (!isPasswordValid) {
+                return res.render('signin', { errorMessage: 'Invalid email or password' });
+            }
+
+            // Store user's first name in session
+            req.session.firstName = user.firstName;
+
+            const token = generateToken({ userId: user._id, email: user.email, role: user.role });
+
+            // Redirect user to the landing page
+            return res.redirect('/');
+        } else {
+            // Check in the agent collection if user not found in user collection
             const agent = await Agent.findOne({ email });
             if (!agent) {
                 return res.render('signin', { errorMessage: 'Invalid email or password' });
@@ -32,31 +46,17 @@ router.post('/', async (req, res) => {
                 return res.render('signin', { errorMessage: 'Invalid email or password' });
             }
 
-            // Store agent's first name in session
+            // Store agent's first name and ID in session
             req.session.firstName = agent.firstName;
+            req.session.agentId = agent._id;
 
+            // Redirect agent to their dashboard
             return res.redirect('/dashboard');
         }
-        
-        // Compare the provided password with the hashed password stored in the database
-        const isPasswordValid = await bcrypt.compare(password, user.password);
-        if (!isPasswordValid) {
-            // If passwords don't match, return error message
-            return res.render('signin', { errorMessage: 'Invalid email or password' });
-        }
-
-        const token = generateToken({ userId: user._id, email: user.email, role: user.role })
-
-        // Store user's first name in session
-        req.session.firstName = user.firstName;
-
-        // Redirect user to the landing page
-        return res.redirect('/');
-        
     } catch (error) {
         console.error('Error during signin:', error);
         res.status(500).send('Internal Server Error');
     }
-})
+});
 
 export default router;

@@ -63,7 +63,8 @@ const propertySchema = new mongoose.Schema({
     },
     agent: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Agent' // Assuming 'Agent' is the correct model name
+        ref: 'Agent',
+        required: true
     }
 });
 

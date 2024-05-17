@@ -53,7 +53,8 @@ router.post('/', upload.array('photos'), async (req, res) => {
             bathroom,
             agentName,
             agentEmail,
-            agentPhone
+            agentPhone,
+            agent: req.session.agentId // Link the property with the logged-in agent's ID
         });
 
         // Save the new property to the database

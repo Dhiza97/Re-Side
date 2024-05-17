@@ -58,7 +58,7 @@ router.post('/', upload.array('photos'), async (req, res) => {
         });
 
         // Save the new property to the database
-        const savedProperty = await newProperty.save();
+        await newProperty.save();
 
         // Redirect the user to the home page or any other appropriate page
         res.redirect('/dashboard');

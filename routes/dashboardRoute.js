@@ -1,5 +1,4 @@
 import express from 'express';
-import Agent from '../models/agentSchema.js';
 import Property from '../models/propertySchema.js';
 
 const router = express.Router();

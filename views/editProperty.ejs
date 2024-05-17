@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Property</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    
+    <div class="addLisitng">
+        <div class="addForm-container">
+            <div>
+                <h1>EDIT PROPERTY</h1>
+            </div>
+            
+            <div>
+                <form action="/property/<%= property._id %>/edit" method="post" enctype="multipart/form-data">
+                    <div class="form-item">
+                        <label for="propertyName">Property Name:</label><br>
+                        <input type="text" id="propertyName" name="propertyName" value="<%= property.propertyName %>" required>
+                    </div>
+                    
+                    <div class="form-item">
+                        <label for="propertyType">Property Type:</label><br>
+                        <select id="propertyType" name="propertyType" required>
+                            <option value="house" <%= property.propertyType === 'house' ? 'selected' : '' %>>House</option>
+                            <option value="apartment" <%= property.propertyType === 'apartment' ? 'selected' : '' %>>Apartment</option>
+                            <option value="condo" <%= property.propertyType === 'condo' ? 'selected' : '' %>>Condo</option>
+                        </select>
+                    </div>
+
+                    <div class="form-item">
+                        <label for="purchaseType">Purchase Type:</label><br>
+                        <select id="purchaseType" name="purchaseType" required>
+                            <option value="rent" <%= property.purchaseType === 'rent' ? 'selected' : '' %>>Rent</option>
+                            <option value="sale" <%= property.purchaseType === 'sale' ? 'selected' : '' %>>Sale</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-item">
+                        <label for="address">Address:</label><br>
+                        <input type="text" id="address" name="address" value="<%= property.address %>" required>
+                    </div>
+    
+                    <div class="form-item">
+                        <label for="city">City:</label><br>
+                        <input type="text" id="city" name="city" value="<%= property.city %>" required>
+                    </div>
+    
+                    <div class="form-item">
+                        <label for="state">State:</label><br>
+                        <input type="text" id="state" name="state" value="<%= property.state %>" required>
+                    </div>
+    
+                    <div class="form-item">
+                        <label for="price">Price:</label><br>
+                        <input type="number" id="price" name="price" value="<%= property.price %>" required>
+                    </div>
+    
+                    <div class="form-item file-upload">
+                        <span>Photos:</span><br>
+                        <label for="">
+                            <input type="file" id="photos" name="photos" multiple>
+                        </label>
+                    </div>
+    
+                    <div class="form-item">
+                        <label for="description">Description:</label><br>
+                        <textarea name="description" id="description" cols="30" rows="10"><%= property.description %></textarea>
+                    </div><br>
+    
+                    <div class="form-item">
+                        <label for="bedroom">Number Of Bedrooms:</label><br>
+                        <input type="number" name="bedroom" id="bedroom" value="<%= property.bedroom %>" required>
+                    </div>
+    
+                    <div class="form-item">
+                        <label for="bathroom">Number Of Bathrooms:</label><br>
+                        <input type="number" name="bathroom" id="bathroom" value="<%= property.bathroom %>" required>
+                    </div>
+    
+                    <h3>Contact Info</h3>
+    
+                    <div class="form-item">
+                        <label for="agentName">Contact Name:</label><br>
+                        <input type="text" name="agentName" id="agentName" value="<%= property.agentName %>" required>
+                    </div>
+    
+                    <div class="form-item">
+                        <label for="agentEmail">Contact Email:</label><br>
+                        <input type="text" name="agentEmail" id="agentEmail" value="<%= property.agentEmail %>" required>
+                    </div>
+    
+                    <div class="form-item">
+                        <label for="agentPhone">Contact Number:</label><br>
+                        <input type="number" name="agentPhone" id="agentPhone" value="<%= property.agentPhone %>" required>
+                    </div>
+    
+                    <button type="submit">Update Property</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

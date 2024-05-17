@@ -123,8 +123,12 @@
                                             <td>$<%= property.price %></td>
                                             <td><%= property.agentName %></td>
                                             <td>
-                                                <button>Edit</button>
-                                                <button>Delete</button>
+                                                <form action="/property/<%= property._id %>/edit" method="get" style="display:inline;">
+                                                    <button type="submit">Edit</button>
+                                                </form>
+                                                <form action="/property/<%= property._id %>/delete" method="post" style="display:inline;">
+                                                    <button type="submit">Delete</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     <% }); %>

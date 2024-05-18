@@ -38,6 +38,7 @@ import dashboard from './routes/dashboardRoute.js'
 import selectlog from './routes/selectlogRoute.js'
 import addProperty from './routes/addPropertyRoute.js'
 import editPropertyRoute from './routes/editPropertyRoute.js';
+import viewPropertyRoute from './routes/viewPropertiesRoute.js';
 import logoutRoute from './routes/logoutRoute.js'
 
 // Define routes
@@ -49,6 +50,7 @@ app.use('/dashboard', dashboard);
 app.use('/selectlog', selectlog);
 app.use('/add', addProperty);
 app.use('/property', editPropertyRoute);
+app.use('/viewproperties', viewPropertyRoute)
 app.use('/logout', logoutRoute);
 
 

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= property.propertyName %></title>
+</head>
+<body>
+
+    <%- include('partials/header', { firstName: firstName }) %>
+
+    <div class="property-details">
+        <img src="<%= property.photos.length > 0 ? property.photos[0] : '/uploads/default.jpeg' %>" alt="<%= property.propertyName %>">
+        <h1><%= property.propertyName %></h1>
+        <p class="price">₦ <%= property.price.toLocaleString() %></p>
+        <p><strong>Type:</strong> <%= property.propertyType %></p>
+        <p><strong>Purchase Type:</strong> <%= property.purchaseType %></p>
+        <p><strong>Address:</strong> <%= property.address %>, <%= property.city %>, <%= property.state %></p>
+        <p><strong>Description:</strong> <%= property.description %></p>
+        <div class="beds-bath">
+            <span class="beds"><img src="/assets/icon-bed-DST.png" alt=""> <%= property.bedroom %> Beds</span>
+            <span class="bath"><img src="/assets/icon-bathroom-nSw.png" alt=""> <%= property.bathroom %> Bath</span>
+        </div>
+        <p><strong>Agent:</strong> <%= property.agent.firstName %> <%= property.agent.lastName %></p>
+        <p><strong>Contact:</strong> <%= property.agentEmail %> | <%= property.agentPhone %></p>
+    </div>
+
+<%- include('partials/footer') %>
+    
+</body>
+</html>

@@ -19,18 +19,19 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
     try {
         // Extract user data from the request body
-        const { firstName, lastName, email, password } = req.body;
+        const { firstName, lastName, email, phone, password } = req.body;
         // Create a new user
         const user = new User({
             firstName,
             lastName,
             email,
+            phone,
             password
         });
         // Save the user to the database
         await user.save();
         // Redirect the user to the home page
-        res.redirect('/dashboard');
+        res.redirect('/signin');
     } catch (error) {
         console.error('Error during signup:', error);
         res.status(500).send('Internal Server Error');

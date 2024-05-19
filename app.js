@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 // Serve static files from the "public" directory
 app.use(express.static('public'))
+app.use('/uploads', express.static('uploads'));
 
 dotenv.config()
 

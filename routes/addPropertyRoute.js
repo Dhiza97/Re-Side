@@ -1,9 +1,8 @@
 import express from 'express'
 import Property from '../models/propertySchema.js'
-import multer from 'multer'
+import upload from '../config/multerConfig.js'
 
 const router = express.Router()
-const upload = multer({ dest: 'uploads/' })
 
 // GET route to load add properties form
 router.get('/', async (req, res) => {

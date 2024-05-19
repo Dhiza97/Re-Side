@@ -1,29 +1,22 @@
 <%- include('partials/header', { firstName: firstName }) %>
     
-    <div class="house-listings">
-
-        <swiper-container class="mySwiper-2" pagination="true" pagination-clickable="true" space-between="30"
-        slides-per-view="3">
-            <div class="swiper-wrapper-2">
-
-                <h1>All Properties</h1>
-                <div class="properties-list">
-                    <% properties.forEach(property => { %>
-                        <div class="list list-5">
-                            <img src="<%= property.photos.length > 0 ? property.photos[0] : '/path/to/default/image.png' %>" alt="" class="main-img">
-                            <p class="price">₦ <%= property.price.toLocaleString() %></p>
-                            <p class="name"><%= property.propertyName %></p>
-                            <p class="address"><%= property.city %>, <%= property.state %></p>
-                            <div class="beds-bath">
-                                <span class="beds"><img src="/assets/icon-bed-DST.png" alt=""> <%= property.bedroom %> Beds</span> &nbsp;
-                                <span class="bath"><img src="/assets/icon-bathroom-nSw.png" alt=""> <%= property.bathroom %> Bath</span>
-                                <a href="/property/<%= property._id %>" class="see-more">See More...</a>
-                            </div>
-                        </div>
-                    <% }); %>
+    <div class="view-house-listings">
+        <h1>All Properties</h1>
+        <div class="view-properties">
+            <% properties.forEach(property => { %>
+                <div class="list">
+                    <img src="<%= property.photos.length > 0 ? property.photos[0] : './uploads/default.jpeg' %>" alt="" class="main-img">
+                    <p class="price">₦ <%= property.price.toLocaleString() %></p>
+                    <p class="name"><%= property.propertyName %></p>
+                    <p class="address"><%= property.city %>, <%= property.state %></p>
+                    <div class="beds-bath">
+                        <span class="beds"><img src="/assets/icon-bed-DST.png" alt=""> <%= property.bedroom %> Beds</span> &nbsp;
+                        <span class="bath"><img src="/assets/icon-bathroom-nSw.png" alt=""> <%= property.bathroom %> Bath</span>
+                        <a href="/propertydetails/<%= property._id %>" class="see-more">View</a>
+                    </div>
                 </div>
-
-            </div>
-        </swiper-container>
+            <% }); %>
+        </div>
     </div>
+
 <%- include('partials/footer') %>

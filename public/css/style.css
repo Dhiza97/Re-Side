@@ -310,23 +310,23 @@ nav ul li:hover::after {
 }
 
 .display-1 .search .form-container button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 15px;
-  width: 320px;
-  border: none;
-  border-radius: 38px;
-  color: white;
-  background-color: #3a0ba3;
-  font-size: 1.2rem;
-  cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 15px;
+    width: 320px;
+    border: none;
+    border-radius: 38px;
+    color: white;
+    background-color: #3a0ba3;
+    font-size: 1.2rem;
+    cursor: pointer;
 }
 
 .display-1 .search .form-container button img {
-  width: 20px;
-  height: 20px;
-  margin-right: 8px;
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
 }
 
 /* Customers count */
@@ -1593,7 +1593,7 @@ footer .copyright .terms {
 }
 
 
-  /* Add Listng Page */
+  /* Add Listing form Page */
 .addLisitng {
     position: relative;
     padding: 100px;
@@ -1712,4 +1712,80 @@ footer .copyright .terms {
 
 .addLisitng .addForm-container button:hover {
     outline: 1px solid #3a0ca3;
+}
+
+/* View Properties Page */
+.view-house-listings {
+    padding: 0 8.1% 30px;
+}
+
+.view-house-listings h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.view-house-listings .view-properties {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.view-house-listings .list {
+    margin: 30px 40px 0 0;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.view-house-listings .list .main-img {
+    margin-bottom: 2rem;
+    box-sizing: border-box;
+    width: 250px;
+    height: 250px;
+    background-color: #d9d9d9;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.5) -0%, rgba(0, 0, 0, 0.5) 100%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 3rem;
+}
+
+.view-house-listings .list .price {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2b2b2b;
+    margin-bottom: 5px;
+}
+
+.view-house-listings .list .name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #2b2b2b;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-bottom: 5px;
+}
+
+.view-house-listings .list .address {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: #808080;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-bottom: 5px;
+}
+
+.view-house-listings .list .beds img {
+    width: 20px;
+}
+.view-house-listings .list .bath img {
+    width: 20px;
+}
+.view-house-listings .list .beds-bath span {
+    font-size: .8rem;
+}
+.view-house-listings .list .beds-bath a {
+    margin-left: 28px;
+    color: #3a0ba3;
+    font-size: .8rem;
 }

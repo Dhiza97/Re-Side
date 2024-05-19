@@ -39,6 +39,7 @@ import selectlog from './routes/selectlogRoute.js'
 import addProperty from './routes/addPropertyRoute.js'
 import editPropertyRoute from './routes/editPropertyRoute.js';
 import viewPropertyRoute from './routes/viewPropertiesRoute.js';
+import propertyDetailsRoute from './routes/propertyDetailsRoute.js';
 import logoutRoute from './routes/logoutRoute.js'
 
 // Define routes
@@ -51,6 +52,7 @@ app.use('/selectlog', selectlog);
 app.use('/add', addProperty);
 app.use('/property', editPropertyRoute);
 app.use('/viewproperties', viewPropertyRoute)
+app.use('/propertydetails', propertyDetailsRoute)
 app.use('/logout', logoutRoute);
 
 

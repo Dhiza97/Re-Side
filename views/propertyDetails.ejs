@@ -1,31 +1,179 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%= property.propertyName %></title>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <title>Re-Side</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/viewProperty.css">
 </head>
 <body>
+    <div class="main-container">
+        <nav>
 
-    <%- include('partials/header', { firstName: firstName }) %>
+            <div class="logo">
+                <a href="//">
+                    <img src="/assets/logo.png" alt="Re-Side Logo"/>
+                </a>
+            </div>
 
-    <div class="property-details">
-        <img src="<%= property.photos.length > 0 ? property.photos[0] : '/uploads/default.jpeg' %>" alt="<%= property.propertyName %>">
-        <h1><%= property.propertyName %></h1>
-        <p class="price">₦ <%= property.price.toLocaleString() %></p>
-        <p><strong>Type:</strong> <%= property.propertyType %></p>
-        <p><strong>Purchase Type:</strong> <%= property.purchaseType %></p>
-        <p><strong>Address:</strong> <%= property.address %>, <%= property.city %>, <%= property.state %></p>
-        <p><strong>Description:</strong> <%= property.description %></p>
-        <div class="beds-bath">
-            <span class="beds"><img src="/assets/icon-bed-DST.png" alt=""> <%= property.bedroom %> Beds</span>
-            <span class="bath"><img src="/assets/icon-bathroom-nSw.png" alt=""> <%= property.bathroom %> Bath</span>
+            <ul class="links">
+                <li><a href="">Home</a></li>
+                <li><a href="/about">About</a></li>
+                <li><a href="/viewproperties">Listings</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="">Blogs</a></li>
+            </ul>
+
+            <div class="account">
+                <div class="login">
+                    <div class="dropdown">
+                        <button>
+                            <img src="/assets/icon-user-circle-alt.png" alt="">
+                            <% if (firstName) { %>
+                            <div class="dropdown">
+                                <span class="dropbtn"><a href="/profile"><%= firstName %></a></span>
+                                <div class="dropdown-content">
+                                <a href="#">Profile</a>
+                                <a href="/logout">Logout</a>
+                                </div>
+                            </div>
+                            <% } else { %>
+                            <a href="/signin">Login/Register</a>
+                            <% } %>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </nav>
+
+        <div class="property-details">
+            <h1>Property Details</h1>
+            <div class="swiper mySwiper2">
+                <div class="swiper-wrapper">
+                    <% property.photos.forEach(photo => { %>
+                        <div class="swiper-slide">
+                            <img src="/<%= photo %>" alt="<%= property.propertyName %>">
+                        </div>
+                    <% }); %>
+                </div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <% property.photos.forEach(photo => { %>
+                        <div class="swiper-slide">
+                            <img src="/<%= photo %>" alt="<%= property.propertyName %>">
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+
+            <h1><%= property.propertyName %></h1>
+            <p class="price">₦ <%= property.price.toLocaleString() %></p>
+            <p class="address"><%= property.city %>, <%= property.state %></p>
+            <div class="beds-bath">
+                <span class="beds"><img src="/assets/icon-bed-DST.png" alt=""> <%= property.bedroom %> Beds</span> &nbsp;
+                <span class="bath"><img src="/assets/icon-bathroom-nSw.png" alt=""> <%= property.bathroom %> Bath</span>
+            </div>
+            <p><%= property.description %></p>
+            <p>Agent: <%= property.agentName %></p>
+            <p>Email: <%= property.agentEmail %></p>
+            <p>Phone: +234<%= property.agentPhone %></p>
         </div>
-        <p><strong>Agent:</strong> <%= property.agent.firstName %> <%= property.agent.lastName %></p>
-        <p><strong>Contact:</strong> <%= property.agentEmail %> | <%= property.agentPhone %></p>
+
+        <footer>
+            <div class="foot">
+                <div class="reside-info">
+                    <img src="/assets/logo.png" alt="" class="bottom-logo">
+                    <div class="address">
+                        <p>
+                            2728 Hickory StreetSalt
+                            Lake City, UT 84104
+                        </p>
+                    </div>
+
+                    <div class="contact">
+                        <img src="/assets/icon-phone-LAP.png" alt="">
+                        <p>+1 206-214-2298</p>
+                    </div>
+
+                    <div class="email">
+                        <img src="/assets/icon-mail-TXZ.png" alt="">
+                        <p>support@rezilla.com</p>
+                    </div>
+                </div>
+
+                <div class="bottom-links quick-links">
+                    <p class="foot-header">Quick Links</p>
+                    <a href="">Home</a>
+                    <a href="">About</a>
+                    <a href="">Listings</a>
+                    <a href="">Services</a>
+                    <a href="">Blogs</a>
+                    <a href="">Become an agent</a>
+                </div>
+
+                <div class="bottom-links discovery">
+                    <p class="foot-header">Discovery</p>
+                    <a href="">Lagos</a>
+                    <a href="">Kaduna</a>
+                    <a href="">Ogun</a>
+                    <a href="">Ibadan</a>
+                    <a href="">Cross-River</a>
+                    <a href="">Imo</a>
+                </div>
+
+                <div class="bottom-links subscribe">
+                    <p class="foot-header">Subscribe to our <br> Newsletter!</p>
+                    <div class="bottom-input">
+                        <input type="email" name="" id="" placeholder="Email Address">
+                        <a href=""><img src="/assets/auto-group-fxxb.png" alt=""></a>
+                    </div>
+
+                    <div class="socials">
+                        <p class="foot-header">Follow Us on</p>
+                        <div class="socials-icon">
+                            <a href=""><img src="/assets/icon-linkedin-in-4dh.png" alt=""></a>
+                            <a href=""><img src="/assets/icon-facebook-f.png" alt="" class="fb"></a>
+                            <a href=""><img src="/assets/icon-instagram.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <div class="right">
+                    <p>© Re-Side – All rights reserved</p>
+                </div>
+
+                <div class="terms">
+                    <a href="">Terms and Conditions</a>
+                    <a href="">Privacy Policy</a>
+                    <a href="">Disclaimer</a>
+                </div>
+            </div>
+ 
+        </footer>
+        <button onclick="topFunction()" id="myBtn" title="Go to top">
+            <img src="/assets/arrow-up.png" alt="" width="22px">
+        </button>
+
     </div>
 
-<%- include('partials/footer') %>
-    
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="/javascript/swiper2.js"></script>
+
 </body>
 </html>

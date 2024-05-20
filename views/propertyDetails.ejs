@@ -56,40 +56,45 @@
 
         <div class="property-details">
             <h1>Property Details</h1>
-            <div class="swiper mySwiper2">
-                <div class="swiper-wrapper">
-                    <% property.photos.forEach(photo => { %>
-                        <div class="swiper-slide">
-                            <img src="/<%= photo %>" alt="<%= property.propertyName %>">
-                        </div>
-                    <% }); %>
+            <div class="images">
+                <div class="swiper mySwiper2">
+                    <div class="swiper-wrapper">
+                        <% property.photos.forEach(photo => { %>
+                            <div class="swiper-slide">
+                                <img src="/<%= photo %>" alt="<%= property.propertyName %>">
+                            </div>
+                        <% }); %>
+                    </div>
+                    <!-- Add Navigation -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
-                <!-- Add Navigation -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-            </div>
-
-            <div class="swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <% property.photos.forEach(photo => { %>
-                        <div class="swiper-slide">
-                            <img src="/<%= photo %>" alt="<%= property.propertyName %>">
-                        </div>
-                    <% }); %>
+    
+                <div class="swiper mySwiper">
+                    <div class="swiper-wrapper">
+                        <% property.photos.forEach(photo => { %>
+                            <div class="swiper-slide">
+                                <img src="/<%= photo %>" alt="<%= property.propertyName %>">
+                            </div>
+                        <% }); %>
+                    </div>
                 </div>
             </div>
-
-            <h1><%= property.propertyName %></h1>
-            <p class="price">₦ <%= property.price.toLocaleString() %></p>
-            <p class="address"><%= property.city %>, <%= property.state %></p>
-            <div class="beds-bath">
-                <span class="beds"><img src="/assets/icon-bed-DST.png" alt=""> <%= property.bedroom %> Beds</span> &nbsp;
-                <span class="bath"><img src="/assets/icon-bathroom-nSw.png" alt=""> <%= property.bathroom %> Bath</span>
+            
+            <div class="details">
+                <h1><%= property.propertyName %></h1>
+                <p class="price">₦ <%= property.price.toLocaleString() %></p>
+                <p class="address"><%= property.city %>, <%= property.state %></p>
+                <div class="beds-bath">
+                    <span class="beds"><img src="/assets/icon-bed-DST.png" alt=""> <%= property.bedroom %> Beds</span> &nbsp;
+                    <span class="bath"><img src="/assets/icon-bathroom-nSw.png" alt=""> <%= property.bathroom %> Bath</span>
+                </div>
+                <p><%= property.description %></p>
+                <p>Agent: <%= property.agentName %></p>
+                <p>Email: <%= property.agentEmail %></p>
+                <p>Phone: +234<%= property.agentPhone %></p>
             </div>
-            <p><%= property.description %></p>
-            <p>Agent: <%= property.agentName %></p>
-            <p>Email: <%= property.agentEmail %></p>
-            <p>Phone: +234<%= property.agentPhone %></p>
+            
         </div>
 
         <footer>

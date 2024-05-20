@@ -158,7 +158,7 @@ nav ul li:hover::after {
     font-size: 18px; /* Increase font size */
     transition: all .5s ease-in-out;
 }
-  
+
 #myBtn:hover {
     background-color: #555; /* Add a dark-grey background on hover */
 }

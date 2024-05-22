@@ -19,9 +19,4 @@ router.get('/dashboard', verifyToken, (req, res) => {
     res.send('Welcome to the admin panel');
 });
 
-// Example of an admin route
-router.get('/admin', verifyToken, (req, res) => {
-  
-});
-
 export default router;

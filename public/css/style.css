@@ -1755,6 +1755,18 @@ footer .copyright .terms {
     font-weight: 500;
     color: #2b2b2b;
     margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.view-house-listings .list .price span {
+    font-size: .6rem;
+    font-weight: 400;
+    margin-left: 10px;
+    color: #3a0ca3;
+    background: skyblue;
+    padding: 2px 4px;
+    border-radius: 20px;
 }
 
 .view-house-listings .list .name {

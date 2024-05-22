@@ -6,7 +6,7 @@
             <% properties.forEach(property => { %>
                 <div class="list">
                     <img src="<%= property.photos.length > 0 ? '/' + property.photos[0] : '/uploads/default.jpeg' %>" alt="<%= property.propertyName %>" class="main-img">
-                    <p class="price">₦<%= property.price.toLocaleString() %></p>
+                    <p class="price">₦<%= property.price.toLocaleString() %> <span><%= property.purchaseType %></span></p>
                     <p class="name"><%= property.propertyName %></p>
                     <p class="address"><%= property.city %>, <%= property.state %></p>
                     <div class="beds-bath">

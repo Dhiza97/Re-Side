@@ -39,7 +39,16 @@ router.post('/:id/edit', upload.array('photos'), async (req, res) => {
             agentPhone
         } = req.body;
 
-        const photos = req.files.map(file => file.path);
+        // Get existing and removed photos
+        const existingPhotos = req.body.existingPhotos || [];
+        const removedPhotos = req.body.removedPhotos ? req.body.removedPhotos.split(',').map(Number) : [];
+
+        // Filter out removed photos
+        const updatedPhotos = existingPhotos.filter((_, index) => !removedPhotos.includes(index));
+
+        // Add new uploaded photos
+        const newPhotos = req.files.map(file => file.path);
+        const allPhotos = [...updatedPhotos, ...newPhotos];
 
         const updatedProperty = {
             propertyName,
@@ -50,7 +59,7 @@ router.post('/:id/edit', upload.array('photos'), async (req, res) => {
             state,
             zip,
             price,
-            photos,
+            photos: allPhotos,
             description,
             bedroom,
             bathroom,

@@ -57,9 +57,23 @@
                         <label for="price">Price:</label><br>
                         <input type="number" id="price" name="price" value="<%= property.price %>" required>
                     </div>
+
+                    <div class="form-item">
+                        <label>Existing Photos:</label><br>
+                        <div class="existing-photos">
+                            <% property.photos.forEach((photo, index) => { %>
+                                <div class="photo-item">
+                                    <img src="/<%= photo %>" alt="Property Image" width="100">
+                                    <button type="button" class="remove-photo" data-index="<%= index %>">Remove</button>
+                                    <input type="hidden" name="existingPhotos[]" value="<%= photo %>">
+                                </div>
+                            <% }); %>
+                        </div>
+                        <input type="hidden" name="removedPhotos" id="removedPhotos">
+                    </div>
     
                     <div class="form-item file-upload">
-                        <span>Photos:</span><br>
+                        <span>Add Photos:</span><br>
                         <label for="">
                             <input type="file" id="photos" name="photos" multiple>
                         </label>
@@ -103,5 +117,18 @@
 
         </div>
     </div>
+
+    <script>
+        document.querySelectorAll('.remove-photo').forEach(button => {
+            button.addEventListener('click', () => {
+                const index = button.dataset.index;
+                const photoItem = button.parentElement;
+                photoItem.style.display = 'none';
+
+                const removedPhotosInput = document.getElementById('removedPhotos');
+                removedPhotosInput.value += index + ',';
+            });
+        });
+    </script>
 </body>
 </html>

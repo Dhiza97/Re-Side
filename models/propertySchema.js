@@ -11,7 +11,7 @@ const propertySchema = new mongoose.Schema({
     },
     purchaseType: {
         type: String,
-        enum: ['Rent', 'Sale']
+        enum: ['rent', 'sale']
     },
     address: {
         type: String,

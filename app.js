@@ -3,6 +3,7 @@ import session from 'express-session'
 import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
+import flash from 'connect-flash';
 
 const app = express()
 
@@ -24,6 +25,14 @@ app.use(session({
         maxAge: 1000 * 60 * 60 * 24 * 7 // 7 days
     }
 }));
+
+app.use(flash());
+
+// Middleware to make flash messages available in templates
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg');
+    next();
+});
 
 // Database Connection
 mongoose.connect(process.env.DB_CONNECTION_STRING)

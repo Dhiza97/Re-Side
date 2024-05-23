@@ -29,6 +29,9 @@ router.post('/', async (req, res) => {
         });
         // Save the user to the database
         await user.save();
+        
+        req.flash('success_msg', 'You have successfully signed up!');
+
         // Redirect the user to the home page
         res.redirect('/');
     } catch (error) {

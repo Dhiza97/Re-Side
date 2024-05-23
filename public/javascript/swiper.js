@@ -72,3 +72,15 @@ function filterProperties(filter) {
         window.location.href = `/viewproperties?filter=${filter}`;
     }
 }
+
+// Sign In & Sign Up Success message
+document.addEventListener('DOMContentLoaded', function() {
+    const successMessage = document.getElementById('success-message');
+    if (successMessage) {
+        setTimeout(() => {
+            successMessage.style.transition = 'opacity 1s';
+            successMessage.style.opacity = '0';
+            setTimeout(() => successMessage.remove(), 1000);
+        }, 3000); // Adjust the time as needed
+    }
+});

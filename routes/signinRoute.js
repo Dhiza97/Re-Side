@@ -30,6 +30,8 @@ router.post('/', async (req, res) => {
 
             const token = generateToken({ userId: user._id, email: user.email, role: user.role });
 
+            req.flash('success_msg', 'You have successfully signed in!');
+
             // Redirect user to the landing page
             return res.redirect('/');
         } else {
@@ -49,6 +51,8 @@ router.post('/', async (req, res) => {
             // Store agent's first name and ID in session
             req.session.firstName = agent.firstName;
             req.session.agentId = agent._id;
+
+            req.flash('success_msg', 'You have successfully signed in!');
 
             // Redirect agent to their dashboard
             return res.redirect('/dashboard');

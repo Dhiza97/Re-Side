@@ -195,18 +195,14 @@ td {
 tr:nth-child(even) {
     background: #fff;
 }
-tfoot {
-    background: #3a0ca3;
-    font-weight: bold;
-}
-tfoot td {
-    padding: 15px;
-    color: #fff;
-}
 .table--container button {
     color: green;
     background: none;
     cursor: pointer;
+}
+.table--container .delete-btn {
+    color: red;
+    margin-left: 5px;
 }
 
 .info {

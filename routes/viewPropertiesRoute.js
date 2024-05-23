@@ -5,9 +5,17 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
     try {
-        const properties = await Property.find().populate('agent');
+        const filter = req.query.filter || 'All';
+        let query = {};
+
+        if (filter !== 'All') {
+            query.purchaseType = filter.toLowerCase();
+        }
+
+        const properties = await Property.find(query).populate('agent').sort({ createdAt: -1 });
         const firstName = req.session.firstName || ''; // Get firstName from session, default to empty string if not present
-        res.render('viewProperties', { properties, firstName });
+
+        res.render('viewProperties', { properties, firstName, filter });
     } catch (error) {
         console.error('Error fetching properties:', error);
         res.status(500).send('Internal Server Error');

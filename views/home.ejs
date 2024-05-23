@@ -165,107 +165,28 @@
             </div>
 
             <div class="btns">
-                <button>All</button>
-                <button>Sell</button>
-                <button>Rent</button>
+                <a href="/viewproperties">
+                    <button>View All</button>
+                </a>
             </div>
         </div>
 
         <div class="house-listings">
-
-            <swiper-container class="mySwiper-2" pagination="true" pagination-clickable="true" space-between="30"
-            slides-per-view="3">
+            <swiper-container class="mySwiper-2" pagination="true" pagination-clickable="true" space-between="30" slides-per-view="3">
                 <div class="swiper-wrapper-2">
-
-                        <div class="list list-1">
-                            <img src="" alt="" class="main-img">
-                            <p class="price">₦ 50,970,000</p>
-                            <p class="name"> 
-                                4 Bedroom Semi-Detached Duplex
-                            </p>
-                            <p class="address">
-                                Ikota Villa Estate, Ikota, Lekki, Lagos
-                            </p>
+                    <% properties.forEach(property => { %>
+                        <div class="list swiper-slide-2">
+                            <img src="/<%= property.photos[0] %>" alt="<%= property.propertyName %>" class="main-img">
+                            <p class="price">₦<%= property.price.toLocaleString() %> <span><%= property.purchaseType %></span></p>
+                            <p class="name"><%= property.propertyName %></p>
+                            <p class="address"><%= property.address %>, <%= property.city %>, <%= property.state %></p>
                             <div class="beds-bath">
-                                <span class="beds"><img src="/assets/icon-bed-DST.png" alt=""> 4 Beds</span> &nbsp;
-                                <span class="bath"><img src="/assets/icon-bathroom-nSw.png" alt=""> 4 Bath</span>
-                                <a href="" class="see-more">See More...</a>
+                                <span class="beds"><img src="/assets/icon-bed-DST.png" alt=""> <%= property.bedroom %> Beds</span> &nbsp;
+                                <span class="bath"><img src="/assets/icon-bathroom-nSw.png" alt=""> <%= property.bathroom %> Bath</span>
+                                <a href="/propertydetails/<%= property._id %>" class="see-more">View</a>
                             </div>
                         </div>
-
-                        <div class="list list-2">
-                            <img src="" alt="" class="main-img">
-                            <p class="price">₦ 900,000,000</p>
-                            <p class="name">
-                                5 Bedroom Detached Duplex
-                            </p>
-                            <p class="address">
-                                Shonibare Estate Ikeja, Ikeja, Lagos
-                            </p>
-                            <div class="beds-bath">
-                                <span class="beds"><img src="/assets/icon-bed-DST.png" alt=""> 5 Beds</span> &nbsp;
-                                <span class="bath"><img src="/assets/icon-bathroom-nSw.png" alt=""> 5 Bath</span>
-                                <a href="" class="see-more">See More...</a>
-                            </div>
-                        </div>
-
-                        <div class="list list-3">
-                            <img src="" alt="" class="main-img">
-                            <p class="price">₦ 37,000,000</p>
-                            <p class="name">
-                                4 Bedroom House
-                            </p>
-                            <p class="address">
-                                Mowe Obafemi Owode Ogun
-                            </p>
-                            <div class="beds-bath">
-                                <span class="beds"><img src="/assets/icon-bed-DST.png" alt=""> 4 Beds</span> &nbsp;
-                                <span class="bath"><img src="/assets/icon-bathroom-nSw.png" alt=""> 4 Bath</span>
-                                <a href="" class="see-more">See More...</a>
-                            </div>
-                        </div>
-
-                        <div class="list list-4 swiper-slide-2">
-                            <img src="" alt="" class="main-img">
-                            <p class="price">₦ 20,000,000</p>
-                            <p class="name">10 Bedroom House</p>
-                            <p class="address">
-                                Owerri, Imo
-                            </p>
-                            <div class="beds-bath">
-                                <span class="beds"><img src="/assets/icon-bed-DST.png" alt=""> 4 Beds</span> &nbsp;
-                                <span class="bath"><img src="/assets/icon-bathroom-nSw.png" alt=""> 4 Bath</span>
-                                <a href="" class="see-more">See More...</a>
-                            </div>
-                        </div>
-
-                        <div class="list list-5">
-                            <img src="" alt="" class="main-img">
-                            <p class="price">₦ 629,900,000</p>
-                            <p class="name">3 Bedroom House</p>
-                            <p class="address">
-                                ikeja,Lagos
-                            </p>
-                            
-                            <div class="beds-bath">
-                                <span class="beds"><img src="/assets/icon-bed-DST.png" alt=""> 3 Beds</span> &nbsp;
-                                <span class="bath"><img src="/assets/icon-bathroom-nSw.png" alt=""> 4 Bath</span>
-                                <a href="" class="see-more">See More...</a>
-                            </div>
-                        </div>
-
-                        <div class="list list-6">
-                            <img src="" alt="" class="main-img">
-                            <p class="price">₦ 800,000,000</p>
-                            <p class="name">Serene Retreat by the Lake</p>
-                            <p class="address">1964 Jehovah Drive, VA 22408</p>
-
-                            <div class="beds-bath">
-                                <span class="beds"><img src="/assets/icon-bed-DST.png" alt=""> 4 Beds</span> &nbsp;
-                                <span class="bath"><img src="/assets/icon-bathroom-nSw.png" alt=""> 4 Bath</span>
-                                <a href="" class="see-more">See More...</a>
-                            </div>
-                        </div>
+                    <% }); %>
                 </div>
             </swiper-container>
         </div>

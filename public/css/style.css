@@ -647,7 +647,8 @@ nav ul li:hover::after {
     color: #808080;
 }
 
-.latest .headings .btns button {
+.latest .headings .btns button,
+.view-house-listings .views-header .btns button {
     margin-right: 10px;
     margin-bottom: 84px;
     box-sizing: border-box;
@@ -667,7 +668,19 @@ nav ul li:hover::after {
     transition: 0.3s ease-in-out;
 }
 
-.latest .headings .btns button:hover {
+.view-house-listings .views-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.latest .headings .btns button:hover,
+.view-house-listings .views-header .btns button:hover {
+    background-color: #3a0ca3;
+    color: white;
+}
+
+.view-house-listings .views-header .btns button.active {
     background-color: #3a0ca3;
     color: white;
 }
@@ -691,30 +704,24 @@ nav ul li:hover::after {
     border-radius: 3rem;
 }
 
-.house-listings .list-1 .main-img {
-    background-image: url(../assets/rectangle-18-bg.png);
-}
-.house-listings .list-2 .main-img {
-    background-image: url(../assets/rectangle-19-bg.png);
-}
-.house-listings .list-3 .main-img {
-    background-image: url(../assets/rectangle-20-bg.png);
-}
-.house-listings .list-4 .main-img {
-    background-image: url(../assets/rectangle-21-bg-JHH.png);
-}
-.house-listings .list-5 .main-img {
-    background-image: url(../assets/house-1.jpg);
-}
-.house-listings .list-6 .main-img {
-    background-image: url(../assets/house-2.jpg);
-}
-
 .house-listings .list .price {
     font-size: 1.5rem;
     font-weight: 600;
     color: #2b2b2b;
     margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.house-listings .list .price span {
+    font-size: .6rem;
+    font-weight: 400;
+    margin-left: 10px;
+    color: #3a0ca3;
+    background: skyblue;
+    padding: 2px 4px;
+    border-radius: 20px;
 }
 
 .house-listings .list .name {

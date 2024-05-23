@@ -1,7 +1,18 @@
 <%- include('partials/header', { firstName: firstName }) %>
     
     <div class="view-house-listings">
-        <h1>All Properties</h1>
+        <div class="views-header">
+            <div>
+                <h1>All Properties</h1>
+            </div>
+            
+            <div class="btns">
+                <button onclick="filterProperties('All')" class="<%= filter === 'All' ? 'active' : '' %>">All</button>
+                <button onclick="filterProperties('Sale')" class="<%= filter === 'Sale' ? 'active' : '' %>">Sale</button>
+                <button onclick="filterProperties('Rent')" class="<%= filter === 'Rent' ? 'active' : '' %>">Rent</button>
+            </div>
+        </div>
+        
         <div class="view-properties">
             <% properties.forEach(property => { %>
                 <div class="list">

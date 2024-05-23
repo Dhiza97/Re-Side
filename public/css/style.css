@@ -1732,6 +1732,10 @@ footer .copyright .terms {
     margin-bottom: 30px;
 }
 
+.view-house-listings .views-header .btns {
+    margin-top: 55px;
+}
+
 .view-house-listings .view-properties {
     display: grid;
     grid-template-columns: repeat(4, 1fr);

@@ -63,9 +63,12 @@ function topFunction() {
 
 // Filter Properties
 function filterProperties(filter) {
-    // Convert the filter option to lowercase
-    const lowercaseFilter = filter.toLowerCase();
-
-    // Redirect to the view properties page with the lowercase filter query parameter
-    window.location.href = `/viewproperties?filter=${lowercaseFilter}`;
+    // Check if the lowercase filter is "rent" or "sale"
+    if (filter.toLowerCase() === "rent" || filter.toLowerCase() === "sale") {
+        // Redirect to the view properties page with the lowercase filter query parameter
+        window.location.href = `/viewproperties?filter=${filter.toLowerCase()}`;
+    } else {
+        // Redirect to the view properties page with the specified filter query parameter
+        window.location.href = `/viewproperties?filter=${filter}`;
+    }
 }

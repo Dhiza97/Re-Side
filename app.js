@@ -22,11 +22,20 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        maxAge: 1000 * 60 * 60 * 24 * 7 // 7 days
+        maxAge: 10 * 60 * 1000 // 10 Minutes
     }
 }));
 
 app.use(flash());
+
+// Middleware to reset session timer on activity
+app.use((req, res, next) => {
+    if (req.session) {
+        req.session._garbage = Date();
+        req.session.touch();
+    }
+    next();
+});
 
 // Middleware to make flash messages available in templates
 app.use((req, res, next) => {

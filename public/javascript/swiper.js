@@ -84,3 +84,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 3000); // Adjust the time as needed
     }
 });
+
+// Set up logout after inactivity
+let timeout;
+
+function resetTimeout() {
+    clearTimeout(timeout);
+    timeout = setTimeout(logout, 10 * 60 * 1000); // 10 minutes
+}
+
+function logout() {
+    window.location.href = '/logout'; // Adjust the logout URL as needed
+}
+
+document.addEventListener('mousemove', resetTimeout);
+document.addEventListener('keydown', resetTimeout);
+document.addEventListener('scroll', resetTimeout);
+document.addEventListener('click', resetTimeout);
+
+resetTimeout(); // Initialize the timeout

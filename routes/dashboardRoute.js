@@ -1,9 +1,10 @@
 import express from 'express';
 import Property from '../models/propertySchema.js';
+import { ensureAuthenticated } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/', ensureAuthenticated, async (req, res) => {
     try {
         // Find properties linked to the logged-in agent
         const properties = await Property.find({ agent: req.session.agentId });

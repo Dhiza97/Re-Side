@@ -85,6 +85,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+// Automatically close Sign In alert after 5 seconds
+setTimeout(() => {
+    const alert = document.querySelector('.alert');
+    if (alert) {
+        alert.style.opacity = '0';
+        setTimeout(() => alert.remove(), 600);
+    }
+}, 5000);
+
 // Set up logout after inactivity
 let timeout;
 

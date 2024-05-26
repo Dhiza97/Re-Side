@@ -8,6 +8,12 @@
         <link rel="stylesheet" href="/css/login.css">
     </head>
     <body>
+        <% if (error_msg) { %>
+            <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <%= error_msg %>
+            </div>
+        <% } %>
         <ul class="background">
             <li></li>
             <li></li>
@@ -60,5 +66,6 @@
                 </form>
             </div>
         </div>
+        <script src="/javascript/script.js"></script>
     </body>
 </html>

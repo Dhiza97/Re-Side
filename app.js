@@ -5,6 +5,7 @@ import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import flash from 'connect-flash';
 import MongoStore from 'connect-mongo';
+import { ensureAuthenticated } from './middleware/authMiddleware.js';
 
 const app = express()
 
@@ -74,14 +75,15 @@ app.use('/', homeRoute);
 app.use('/signup', signupRoute);
 app.use('/signin', signinRoute);
 app.use('/signupagent', signupagentRoute);
-app.use('/dashboard', dashboard);
 app.use('/selectlog', selectlog);
-app.use('/add', addProperty);
-app.use('/property', editPropertyRoute);
-app.use('/viewproperties', viewPropertyRoute)
-app.use('/propertydetails', propertyDetailsRoute)
 app.use('/logout', logoutRoute);
 
+// Routes that require authentication
+app.use('/dashboard', ensureAuthenticated, dashboard);
+app.use('/add', ensureAuthenticated, addProperty);
+app.use('/property', ensureAuthenticated, editPropertyRoute);
+app.use('/viewproperties', ensureAuthenticated, viewPropertyRoute);
+app.use('/propertydetails', ensureAuthenticated, propertyDetailsRoute);
 
 const PORT = process.env.PORT || 5050
 app.listen(PORT, () => {

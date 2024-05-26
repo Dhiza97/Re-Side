@@ -1,10 +1,11 @@
 import express from 'express';
 import Property from '../models/propertySchema.js';
+import { ensureAuthenticated } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
 // Route to get the details of a specific property
-router.get('/:id', async (req, res) => {
+router.get('/:id', ensureAuthenticated, async (req, res) => {
     try {
         const propertyId = req.params.id;
         const property = await Property.findById(propertyId).populate('agent');

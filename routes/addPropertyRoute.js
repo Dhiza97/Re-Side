@@ -1,11 +1,12 @@
 import express from 'express'
 import Property from '../models/propertySchema.js'
 import upload from '../config/multerConfig.js'
+import { ensureAuthenticated } from '../middleware/authMiddleware.js';
 
 const router = express.Router()
 
 // GET route to load add properties form
-router.get('/', async (req, res) => {
+router.get('/', ensureAuthenticated, async (req, res) => {
     res.render('addProperty')
 })
 

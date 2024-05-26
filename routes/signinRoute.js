@@ -27,6 +27,7 @@ router.post('/', async (req, res) => {
 
             // Store user's first name in session
             req.session.firstName = user.firstName;
+            req.session.user = user;
 
             const token = generateToken({ userId: user._id, email: user.email, role: user.role });
 
@@ -51,6 +52,7 @@ router.post('/', async (req, res) => {
             // Store agent's first name and ID in session
             req.session.firstName = agent.firstName;
             req.session.agentId = agent._id;
+            req.session.agent = agent;
 
             req.flash('success_msg', 'You have successfully signed in!');
 

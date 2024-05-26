@@ -1,9 +1,10 @@
 import express from 'express';
 import Property from '../models/propertySchema.js';
+import { ensureAuthenticated } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
-router.get('/', async (req, res) => {
+router.get('/', ensureAuthenticated, async (req, res) => {
     try {
         const filter = req.query.filter || 'All';
         let query = {};

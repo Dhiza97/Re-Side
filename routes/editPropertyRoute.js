@@ -1,12 +1,13 @@
 import express from 'express';
 import Property from '../models/propertySchema.js';
 import multer from 'multer';
+import { ensureAuthenticated } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 const upload = multer({ dest: 'uploads/' });
 
 // GET route to load the edit property form
-router.get('/:id/edit', async (req, res) => {
+router.get('/:id/edit', ensureAuthenticated, async (req, res) => {
     try {
         const property = await Property.findById(req.params.id);
         if (!property) {

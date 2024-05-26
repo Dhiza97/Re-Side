@@ -43,12 +43,12 @@ export const checkIfAgentLoggedIn = (req, res, next) => {
     }
 };
 
-// Middleware to check if user is logged in
+// Middleware to check if user or agent is logged in
 export const ensureAuthenticated = (req, res, next) => {
-    if (req.session.user) {
+    if (req.session.user || req.session.agent) {
         next();
     } else {
-        req.flash('error_msg', 'Please log in to view dashboard');
+        req.flash('error_msg', 'Please log in to view the page');
         res.redirect('/signin');
     }
 };

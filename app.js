@@ -4,6 +4,7 @@ import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
 import flash from 'connect-flash';
+import MongoStore from 'connect-mongo';
 
 const app = express()
 
@@ -16,13 +17,18 @@ app.use('/uploads', express.static('uploads'));
 
 dotenv.config()
 
-// Set up session middleware
+// Set up session middleware with MongoStore
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: process.env.DB_CONNECTION_STRING,
+        ttl: 10 * 60, // 10 minutes
+        autoRemove: 'native' // Default behavior
+    }),
     cookie: {
-        maxAge: 10 * 60 * 1000 // 10 Minutes
+        maxAge: 10 * 60 * 1000 // 10 minutes
     }
 }));
 
@@ -38,8 +44,10 @@ app.use((req, res, next) => {
 });
 
 // Middleware to make flash messages available in templates
+// Middleware to make flash messages available in templates
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
     next();
 });
 

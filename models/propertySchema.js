@@ -23,7 +23,7 @@ const propertySchema = new mongoose.Schema({
     },
     state: {
         type: String,
-        required: true
+        enum: ['Ibadan', 'Imo', 'Kaduna', 'Lagos', 'Ogun' ]
     },
     zip: {
         type: Number

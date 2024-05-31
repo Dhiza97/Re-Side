@@ -51,7 +51,14 @@
     
                     <div class="form-item">
                         <label for="state">State:</label><br>
-                        <input type="text" id="state" name="state" value="<%= property.state %>" required>
+                        <select id="state" name="state">
+                            <option value="" selected disabled hidden>Select State</option>
+                            <option value="Ibadan">Ibadan</option>
+                            <option value="Imo">Imo</option>
+                            <option value="Kaduna">Kaduna</option>
+                            <option value="Lagos">Lagos</option>
+                            <option value="Ogun">Ogun</option>
+                        </select>
                     </div>
     
                     <div class="form-item">

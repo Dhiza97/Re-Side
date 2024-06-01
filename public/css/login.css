@@ -511,8 +511,8 @@ select {
 /* Sign In alert message */
 .alert {
     padding: 20px;
-    background-color: #f44336;
-    color: white;
+    background-color: transparent;
+    color: red;
     opacity: 1;
     transition: opacity 0.6s;
     margin-bottom: 15px;

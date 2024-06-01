@@ -45,7 +45,6 @@ app.use((req, res, next) => {
 });
 
 // Middleware to make flash messages available in templates
-// Middleware to make flash messages available in templates
 app.use((req, res, next) => {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');

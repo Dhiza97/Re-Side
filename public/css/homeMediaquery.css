@@ -34,19 +34,62 @@
 
     /* Slideshow */
     .display-1 .show .slideshow-container {
-        width: 350px;
+        width: 340px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
     
     .swiper {
-        width: 350px;
+        width: 340px;
         height: 270px;
     }
 
     .swiper-wrapper {
         margin-bottom: 30px;
+    }
+
+    /* Search Form */
+    .display-1 .search {
+        right: 5%;
+        top: 69%;
+    }
+
+    .display-1 .search .form-container {
+        width: 340px;
+        box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1)
+    }
+    
+    .display-1 .search .form-container h2 {
+        font-size: 1rem;
+    }
+
+    .display-1 .search .form-container form {
+        padding-bottom: 50px;
+    }
+    
+    .display-1 .search .form-container input, select {
+        font-size: .8rem;
+        width: 300px;
+        height: 50px;
+    }
+    
+    .display-1 .search .form-container .type {
+        font-size: .8rem;
+    }
+    
+    .display-1 .search .form-container .rooms {
+        font-size: .8rem;
+    }
+    
+    .display-1 .search .form-container button {
+        width: 300px;
+        font-size: 1rem;
+    }
+    
+    .display-1 .search .form-container button img {
+        width: 15px;
+        height: 15px;
     }
 
     .customers {
@@ -57,7 +100,8 @@
         overflow: scroll;
     }
 
-    .search,
+    .main-container .trustees,
+    .customers,
     .testimonials, 
     .waw,
     .latest,
@@ -65,7 +109,8 @@
     .locations,
     .team,
     .blog,
-    .agent {
+    .agent,
+    footer {
         display: none;
     }
 }

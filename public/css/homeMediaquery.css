@@ -1,0 +1,71 @@
+@media screen and (max-width: 1200px) {
+    body {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    #desktop-nav {
+        display: none;
+    }
+
+    #hamburger-nav {
+        display: flex;
+    }
+
+    nav .links {
+        flex-direction: column;
+        background: white;
+    }
+
+    .display-1 .show .head-1 {
+        font-size: .9rem;
+    }
+
+    .display-1 .show h1 {
+        font-size: 2.3rem;
+        max-width: 390px;
+    }
+
+    .display-1 .show h4 {
+        max-width: 340px;
+        font-size: .7rem;
+        line-height: 1.625;
+    }
+
+    /* Slideshow */
+    .display-1 .show .slideshow-container {
+        width: 350px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .swiper {
+        width: 350px;
+        height: 270px;
+    }
+
+    .swiper-wrapper {
+        margin-bottom: 30px;
+    }
+
+    .customers {
+        flex-direction: column;
+    }
+
+    .trustees {
+        overflow: scroll;
+    }
+
+    .search,
+    .testimonials, 
+    .waw,
+    .latest,
+    .services,
+    .locations,
+    .team,
+    .blog,
+    .agent {
+        display: none;
+    }
+}

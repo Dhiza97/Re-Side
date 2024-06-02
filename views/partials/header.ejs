@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
     <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/homeMediaquery.css">
 </head>
 <body>
     <% if (success_msg) { %>
@@ -21,7 +22,7 @@
         </div>
     <% } %>
  <div class="main-container">
-    <nav>
+    <nav id="desktop-nav">
 
         <div class="logo">
             <a href="/">
@@ -59,3 +60,49 @@
         </div>
 
     </nav>
+
+    <nav id="hamburger-nav">
+        <div class="logo">
+            <a href="/">
+                <img src="/assets/logo.png" alt="Re-Side Logo"/>
+            </a>
+        </div>
+        
+        <div class="hamburger-menu">
+            <div class="hamburger-icon" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        
+            <ul class="links menu-links" id="nav-links">
+                <li><a href="/" onclick="toggleMenu()">Home</a></li>
+                <li><a href="/about" onclick="toggleMenu()">About</a></li>
+                <li><a href="/viewproperties" onclick="toggleMenu()">Listings</a></li>
+                <li><a href="#" onclick="toggleMenu()">Services</a></li>
+                <li><a href="#" onclick="toggleMenu()">Blogs</a></li>
+                <li onclick="toggleMenu()">
+                    <div class="account">
+                        <div class="login">
+                            <div class="dropdown">
+                                <button>
+                                    <img src="/assets/icon-user-circle-alt.png" alt="">
+                                    <% if (firstName) { %>
+                                    <div class="dropdown">
+                                        <span class="dropbtn"><a href="/profile"><%= firstName %></a></span>
+                                        <div class="dropdown-content">
+                                            <a href="#">Profile</a>
+                                            <a href="/logout">Logout</a>
+                                        </div>
+                                    </div>
+                                    <% } else { %>
+                                    <a href="/signin">Login/Register</a>
+                                    <% } %>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>    

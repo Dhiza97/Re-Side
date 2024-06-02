@@ -17,6 +17,11 @@
         background: white;
     }
 
+    /* Display Section */
+    .display-1 .show .ellipse-9 {
+        display: none;
+    }
+
     .display-1 .show .head-1 {
         font-size: .9rem;
     }
@@ -92,15 +97,24 @@
         height: 15px;
     }
 
-    .customers {
-        flex-direction: column;
+    /* Trustees Section */
+    .main-container .trustees {
+        margin-top: 350px;
     }
-
-    .trustees {
+    
+    .trustees-ball {
+        display: none;
+    }
+    
+    .trustees .trustees-logo {
         overflow: scroll;
+        padding-left: 20px;
+    }
+    
+    .trustees .trustees-logo img {
+        width: 110px;
     }
 
-    .main-container .trustees,
     .customers,
     .testimonials, 
     .waw,

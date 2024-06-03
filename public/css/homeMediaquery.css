@@ -269,9 +269,62 @@
         font-size: .8rem;
     }
 
+    /* Locations */
+    .locations .second-ball {
+        display: none;
+    }
+
+    .locations .header p {
+        font-size: .9rem;
+    }
+
+    .locations .header h2 {
+        max-width: 16rem;
+        font-size: 1.78rem;
+    }
+
+    .locations .cities {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        flex-wrap: wrap;
+    }
+
+    .locations .cities .top-cities .top-city {
+        width: 150px;
+        height: 150px;
+    }
+
+    .locations .cities .top-cities .city-3 {
+        display: none;
+    }
+
+    .locations .cities .bottom-cities .city-4 {
+        width: 150px;
+        height: 150px;
+    }
+
+    .locations .cities .bottom-cities .city-5 {
+        width: 150px;
+        height: 150px;
+    }
+
+    .locations .cities .city-update {
+        position: absolute;
+        top: -80%;
+    }
+
+    .locations .cities .city-update .number {
+        font-size: 1.5rem;
+    }
+
+    .locations .cities .city-update .city-name {
+        font-size: 1rem;
+        font-weight: light;
+    }
+
     .customers,
     .testimonials,
-    .locations,
     .team,
     .blog,
     .agent,

@@ -108,6 +108,8 @@
     
     .trustees .trustees-logo {
         overflow: scroll;
+        scrollbar-color: #4361ee #fff;
+        scrollbar-width: thin;
         padding-left: 20px;
     }
     
@@ -178,9 +180,57 @@
         top: 98%;
     }
 
+    /* Latest Properties */
+    .latest {
+        margin-top: 260px;
+    }
+
+    .latest .headings {
+        gap: 50px;
+        flex-direction: column;
+    }
+
+    .latest .headings .lastest-write h4 {
+        font-size: .9rem;
+    }
+
+    .latest .headings .lastest-write h2 {
+        font-size: 2rem;
+    }
+
+    .latest .headings .lastest-write p {
+        margin-bottom: 1rem;
+        font-size: .8rem;
+    }
+
+    .latest .headings .btns button {
+        font-size: 1rem;
+    }
+
+    .house-listings .list .main-img {
+        width: 250px;
+        height: 250px;
+    }
+
+    .house-listings .list .price {
+        font-size: 1.3rem;
+        gap: 40px;
+    }
+
+    .house-listings .list .name {
+        font-size: 1rem;
+    }
+
+    .house-listings .list .address {
+        font-size: 0.9rem;
+    }
+
+    .house-listings .list .beds-bath span {
+        font-size: .8rem;
+    }
+
     .customers,
-    .testimonials, 
-    .latest,
+    .testimonials,
     .services,
     .locations,
     .team,

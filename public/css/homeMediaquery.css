@@ -229,9 +229,48 @@
         font-size: .8rem;
     }
 
+    /* Our Services */
+    .services {
+        margin-top: 100px;
+    }
+
+    .services .service-head p {
+        font-size: .9rem;
+    }
+
+    .services .service-head h2 {
+        font-size: 1.28rem;
+        white-space: wrap;
+        text-align: center;
+    }
+
+    .services .service-body {
+        flex-direction: column;
+    }
+
+    .services .service-body .sbody {
+        width: 320px;
+    }
+
+    .services .service-body .sbody .service-icon-bg {
+        width: 45px;
+        height: 45px;
+    }
+
+    .services .service-body .sbody img {
+        width: 20px;
+    }
+
+    .services .service-body .sbody .title {
+        font-size: 1rem;
+    }
+
+    .services .service-body .sbody .content {
+        font-size: .8rem;
+    }
+
     .customers,
     .testimonials,
-    .services,
     .locations,
     .team,
     .blog,

@@ -505,6 +505,10 @@
     }
 
     /* View Properties Page */
+    .view-house-listings {
+        width: 100%;
+    }
+    
     .view-house-listings .view-properties {
         grid-template-columns: repeat(2, 1fr);
     }

@@ -10,6 +10,7 @@ a {
     text-decoration: none;
 }
 
+/* Background Animation */
 @keyframes animate {
     0%{
         transform: translateY(0) rotate(0deg);
@@ -158,11 +159,12 @@ a {
     animation-delay: 9s;
 }
 
+/* Form section */
 .form-container {
     background: #fff;
     position: relative;
     display: flex;
-    height: 70vh;
+    gap: 50px;
     max-width: 70%;
     align-items: center;
     margin: 120px auto;
@@ -172,7 +174,6 @@ a {
 
 .form-container .log-img img {
     width: 450px;
-    /* height: 60vh; */
     margin-left: 20px;
 }
 
@@ -184,14 +185,9 @@ a {
 
 .center .logo  img {
     width: 80px;
-  }
+}
 
 .center {
-    position: absolute;
-    top: 50%;
-    left: 70%;
-    transform: translate(-50%, -50%);
-    width: 400px;
     background: transparent;
     padding-top: 50px;
 }

@@ -20,4 +20,14 @@
         right: 8%;
         font-size: .9rem;
     }
+
+    /* Registraton form */
+    .register {
+        width: 100%;
+    }
+
+    .form-container-reg .reg-img,
+    .typewriter h1 {
+        display: none;
+    }
 }

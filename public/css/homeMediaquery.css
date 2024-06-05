@@ -10,11 +10,24 @@
 
     #hamburger-nav {
         display: flex;
+        justify-content: space-between;
+        padding: 0 8.1%;
+        gap: -20px;
     }
 
     nav .links {
         flex-direction: column;
+        align-items: start;
         background: white;
+        z-index: 2;
+    }
+
+    nav .links a {
+        font-size: 1rem;
+    }
+
+    nav .logo img {
+        width: 80px;
     }
 
     /* Display Section */

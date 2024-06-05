@@ -18,7 +18,7 @@ html {
 }
 
 body {
-    max-width: 100%;
+    width: 100%;
 }
 
 .main-container {
@@ -214,13 +214,9 @@ nav ul li:hover::after {
     background: linear-gradient(180deg, rgba(76, 201, 240, 0.3000000119) -0%, rgba(67, 97, 238, 0.3000000119) 100%);
     border-radius: 0 0 80rem 80rem;
     position: relative;
-    display: block;
-}
-
-.display-1 .show {
-    position: absolute;
-    top: 7%;
-    left: 8.1%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 .display-1 .show .head-1 {
@@ -289,17 +285,15 @@ nav ul li:hover::after {
 
 /* Search Form */
 .display-1 .search {
-    position: absolute;
-    right: 15%;
-    top: 12.5%;
     border-radius: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2)
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin: 0 -200px -60px 0;
 }
 
 .display-1 .search .form-container {
     background: white;
     border-radius: 20px;
-    width: 130%;
+    width: 450px;
 }
 
 .display-1 .search .form-container .head-2 {
@@ -1567,7 +1561,8 @@ footer .foot .bottom-links .socials-icon .fb {
     width: 10px;
 }
 
-footer .copyright {
+/* Copyright section */
+.copyright {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -1575,19 +1570,18 @@ footer .copyright {
     height: 50px;
     color: #aaaaaa;
     gap: 230px;
-    width: 108.7%;
-    margin-left: -14px;
+    width: 100%;
 }
 
-footer .copyright .terms a {
+.copyright .terms a {
     color: #aaaaaa;
 }
 
-footer .copyright .terms a:hover {
+.copyright .terms a:hover {
     color: white;
 }
 
-footer .copyright .terms {
+.copyright .terms {
     display: flex;
     gap: 60px;
     margin-left: -20px;

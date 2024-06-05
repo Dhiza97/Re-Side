@@ -503,4 +503,63 @@
     .testimonials {
         display: none;
     }
+
+    /* View Properties Page */
+    .view-house-listings .view-properties {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .view-house-listings .views-header {
+        flex-direction: column;
+        align-items: start;
+        padding-top: 30px;
+    }
+
+    .view-house-listings h1 {
+        font-size: 2rem;
+    }
+
+    .view-house-listings .views-header .btns {
+        margin-top: 0;
+    }
+
+    .view-house-listings .list {
+        margin: 20px 25px 0 0;
+    }
+
+    .view-house-listings .list .main-img {
+        width: 150px;
+        height: 150px;
+        border-radius: 2rem;
+    }
+
+    .view-house-listings .list .price {
+        font-size: .9rem;
+    }
+    
+    .view-house-listings .list .price span {
+        font-size: .5rem;
+    }
+    
+    .view-house-listings .list .name {
+        font-size: .8rem;
+    }
+    
+    .view-house-listings .list .address {
+        font-size: 0.7rem;
+    }
+    
+    .view-house-listings .list .beds img {
+        width: 10px;
+    }
+    .view-house-listings .list .bath img {
+        width: 10px;
+    }
+    .view-house-listings .list .beds-bath span {
+        font-size: .5rem;
+    }
+    .view-house-listings .list .beds-bath a {
+        margin-left: 10px;
+        font-size: .6rem;
+    }
 }

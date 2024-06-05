@@ -731,12 +731,6 @@ nav ul li:hover::after {
     transition: 0.3s ease-in-out;
 }
 
-.view-house-listings .views-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
 .latest .headings .btns button:hover,
 .view-house-listings .views-header .btns button:hover {
     background-color: #3a0ca3;
@@ -1642,28 +1636,28 @@ footer .foot .bottom-links .socials-icon .fb {
 
 /* Back To Top */
 #myBtn {
-    display: none; /* Hidden by default */
-    position: fixed; /* Fixed/sticky position */
-    bottom: 20px; /* Place the button at the bottom of the page */
-    right: 30px; /* Place the button 30px from the right */
-    z-index: 99; /* Make sure it does not overlap */
-    border: none; /* Remove borders */
-    outline: none; /* Remove outline */
-    background-color: #3a0ca3; /* Set a background color */
-    color: white; /* Text color */
-    cursor: pointer; /* Add a mouse pointer on hover */
-    padding: 15px; /* Some padding */
-    border-radius: 10px; /* Rounded corners */
-    font-size: 18px; /* Increase font size */
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border: none;
+    outline: none;
+    background-color: #3a0ca3;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 18px;
     transition: all .5s ease-in-out;
 }
-  
+
 #myBtn:hover {
-    background-color: #555; /* Add a dark-grey background on hover */
+    background-color: #555;
 }
 
 
-  /* Add Listing form Page */
+/* Add Listing form Page */
 .addLisitng {
     position: relative;
     padding: 100px;
@@ -1736,7 +1730,7 @@ footer .foot .bottom-links .socials-icon .fb {
     width: 20px;
     content: "";
 }
-  
+
 .addLisitng .addForm-container input[type="file"]::after {
     position: absolute;
     pointer-events: none;
@@ -1787,6 +1781,12 @@ footer .foot .bottom-links .socials-icon .fb {
 /* View Properties Page */
 .view-house-listings {
     padding: 0 8.1% 30px;
+}
+
+.view-house-listings .views-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .view-house-listings h1 {

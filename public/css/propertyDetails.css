@@ -1,11 +1,11 @@
 html,
 body {
     position: relative;
-    height: 100%;
 }
 
 html {
     font-family: Poppins, 'Source Sans Pro';
+    scroll-behavior: smooth;
 }
 
 * {
@@ -15,7 +15,7 @@ html {
 }
 
 body {
-    max-width: 100%;
+    width: 100%;
 }
 
 .main-container {
@@ -49,7 +49,7 @@ nav .logo img {
     width: 90px;
 }
 
-nav ul {
+nav .links {
     display: flex;
 }
 
@@ -80,7 +80,7 @@ nav ul li:hover::after {
     width: 100%;
 }
 
-/* Register/Login & Add listing button */
+/* Register/Login & Add listing button Section*/
 .account {
     display: flex;
     justify-content: center;
@@ -108,6 +108,101 @@ nav ul li:hover::after {
     color: #0b090a;
 }
 
+/* Hamburger Menu */
+#hamburger-nav {
+    display: none;
+}
+
+.hamburger-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.hamburger-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 24px;
+    width: 30px;
+    cursor: pointer;
+}
+
+.hamburger-icon span {
+    width: 100%;
+    height: 2px;
+    background-color: black;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    width: fit-content;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-links a {
+    display: block;
+    padding: 10px;
+    text-align: center;
+    font-size: 1.5rem;
+    color: black;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu-links li {
+    list-style: none;
+}
+
+.menu-links.open {
+    max-height: 300px;
+}
+
+.hamburger-icon.open span:nth-child(1) {
+    transform: rotate(45deg) translate(10px, 5px);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-icon.open span:nth-child(3) {
+    transform: rotate(-45deg) translate(10px, -5px);
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 120px;
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 1rem;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+    background-color: #aab9fb;
+    color: #3a0ca3;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
 /* View Property Details Page style */
 .property-details {
@@ -362,7 +457,7 @@ footer .foot .bottom-links .socials-icon .fb {
     width: 10px;
 }
 
-footer .copyright {
+.copyright {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -374,17 +469,136 @@ footer .copyright {
     margin-left: -14px;
 }
 
-footer .copyright .terms a {
+.copyright .terms a {
     color: #aaaaaa;
 }
 
-footer .copyright .terms a:hover {
+.copyright .terms a:hover {
     color: white;
 }
 
-footer .copyright .terms {
+.copyright .terms {
     display: flex;
     gap: 60px;
     margin-left: -20px;
     color: #3a0ba3;
+}
+
+@media screen and (max-width: 1200px) {
+    #desktop-nav {
+        display: none;
+    }
+
+    #hamburger-nav {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 8.1%;
+        gap: -20px;
+    }
+
+    nav .links {
+        flex-direction: column;
+        align-items: start;
+        background: white;
+        z-index: 2;
+    }
+
+    nav .links a {
+        font-size: 1rem;
+    }
+
+    nav .logo img {
+        width: 80px;
+    }
+
+    /* Details Section */
+    .property-details .header h1 {
+        font-size: 1.7rem;
+    }
+
+    .details {
+        flex-direction: column;
+    }
+
+    .details .details-left {
+        width: 100%;
+    }
+
+    .details .details-left .name {
+        font-size: 1.4rem;
+    }
+
+    .details .details-left .name span {
+        font-size: .7rem;
+        margin-left: 70px;
+    }
+
+    .details .details-left .price {
+        font-size: 1rem;
+    }
+
+    .details .details-left .address {
+        font-size: 0.8rem;
+    }
+
+    .details .details-left .beds-bath span {
+        font-size: 0.7rem;
+    }
+
+    .details .details-left .beds-bath img {
+        width: 10px;
+    }
+
+    .details .details-left .description {
+        font-size: 0.8rem;
+        width: 100%;
+    }
+
+    .details .details-right {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .details .details-right h2 {
+        font-size: 1.2rem;
+    }
+
+    .details .details-right p {
+        font-size: 0.8rem;
+    }
+
+    /* Footer */
+    footer .foot {
+        flex-direction: column;
+        gap: 50px;
+    }
+
+    footer .foot .reside-info .bottom-logo {
+        width: 80px;
+    }
+
+    footer .foot .bottom-links .foot-header {
+        font-size: 1.1rem;
+    }
+
+    footer .foot .bottom-links a {
+        font-size: .9rem;
+    }
+
+    footer .foot .bottom-links .socials {
+        margin-top: 20px;
+    }
+
+    footer .foot .bottom-links .socials-icon .fb {
+        width: 12px;
+    }
+
+    /* Copyright section */
+    .copyright {
+        justify-content: center;
+    }
+
+    .copyright .terms {
+        display: none;
+    }
 }

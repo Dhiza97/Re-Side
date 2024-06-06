@@ -26,6 +26,42 @@
         width: 100%;
     }
 
+    /* Select Log Section */
+    .container .writeup-log h1 {
+        font-size: 1.4rem;
+    }
+
+    .container .writeup-log p {
+        font-size: .7rem;
+    }
+
+    .container .logo img {
+        width: 100px;
+        margin: 40px 0 0;
+    }
+
+    .container .select-log {
+        gap: 20px;
+    }
+
+    .container .select-log svg {
+        width: 30px;
+        height: 30px;
+    }
+
+    .container .select-log h4 {
+        font-size: .9rem;
+    }
+
+    .container .select-log p {
+        font-size: .7rem;
+    }
+
+    .container .select-log div {
+        width: 170px;
+        height: 210px;
+    }
+
     .form-container-reg .reg-img,
     .typewriter h1 {
         display: none;

@@ -25,9 +25,10 @@ router.post('/', async (req, res) => {
                 return res.render('signin', { errorMessage: 'Invalid email or password' });
             }
 
-            // Store user's first name in session
+            // Store user's first name and ID in session
             req.session.firstName = user.firstName;
             req.session.user = user;
+            req.session.userId = user._id;
 
             const token = generateToken({ userId: user._id, email: user.email, role: user.role });
 

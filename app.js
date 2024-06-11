@@ -51,6 +51,14 @@ app.use((req, res, next) => {
     next();
 });
 
+// Middleware to make user data available in all templates
+app.use((req, res, next) => {
+    if (req.session.firstName) {
+        res.locals.firstName = req.session.firstName;
+    }
+    next();
+});
+
 // Database Connection
 mongoose.connect(process.env.DB_CONNECTION_STRING)
     .then(() => console.log('E don connect to MongoDB'))
@@ -67,6 +75,7 @@ import addProperty from './routes/addPropertyRoute.js'
 import editPropertyRoute from './routes/editPropertyRoute.js';
 import viewPropertyRoute from './routes/viewPropertiesRoute.js';
 import propertyDetailsRoute from './routes/propertyDetailsRoute.js';
+import profileRoute from './routes/profileRoute.js';
 import logoutRoute from './routes/logoutRoute.js'
 
 // Define routes
@@ -83,6 +92,7 @@ app.use('/add', ensureAuthenticated, addProperty);
 app.use('/property', ensureAuthenticated, editPropertyRoute);
 app.use('/viewproperties', ensureAuthenticated, viewPropertyRoute);
 app.use('/propertydetails', ensureAuthenticated, propertyDetailsRoute);
+app.use('/profile', ensureAuthenticated, profileRoute);
 
 const PORT = process.env.PORT || 5050
 app.listen(PORT, () => {

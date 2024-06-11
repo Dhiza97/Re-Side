@@ -35,13 +35,13 @@ const upload = multer({ storage: storage });
 export { upload };
 
 // Middleware to check if agent is logged in
-export const checkIfAgentLoggedIn = (req, res, next) => {
-    if (req.session.agent) {
-        next();
-    } else {
-        res.redirect('/signin');
-    }
-};
+// export const checkIfAgentLoggedIn = (req, res, next) => {
+//     if (req.session.agent) {
+//         next();
+//     } else {
+//         res.redirect('/signin');
+//     }
+// };
 
 // Middleware to check if user or agent is logged in
 export const ensureAuthenticated = (req, res, next) => {

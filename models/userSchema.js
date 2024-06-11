@@ -10,6 +10,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    middleName: {
+        type: String,
+    },
     email: { 
         type: String,  
         unique: true,  
@@ -21,6 +24,21 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         default: 'Client' 
+    },
+    phone: {
+        type: Number,
+    },
+    address: {
+        type: String,
+    },
+    city: {
+        type: String,
+    },
+    state: {
+        type: String,
+    },
+    country: {
+        type: String,
     },
     password: {  
         type: String,  
@@ -42,6 +60,11 @@ userSchema.pre('save', async function(next) {
         next(error);
     }
 });
+
+// Method to compare passwords
+userSchema.methods.comparePassword = async function (password) {
+    return await bcrypt.compare(password, this.password);
+};
 
 const User = mongoose.model('User', userSchema);
 

@@ -301,8 +301,56 @@ button[type="submit"]:hover {
 }
 
 /* Registration Page */
-.register {
+.form-container-reg {
+    display: flex;
+    
+}
+
+.form-container-reg .reg-img {
+    position: fixed;
+    text-align: center;
+    background: white;
+}
+
+.form-container-reg .reg-img h1 {
+    position: absolute;
+    top: 8%;
+    left: 35%;
+    font-size: 2.5rem;
+    color: #4361ee;
+}
+
+.form-container-reg .reg-img img {
+    width: 800px;
+}
+
+.typewriter h1 {
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid #3a0ca3; /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+    typing 1.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+  /* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 30% }
+}
+
+  /* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: #3a0ca3; }
+}
+
+.form-container-reg .register {
     width: 500px;
+    position: absolute;
+    right: 7%;
 }
 
 /* file upload button */
@@ -375,23 +423,6 @@ input[type="file"]::file-selector-button:active {
     margin-top: 20px;
 }
 
-.form-container-reg .reg-img {
-    position: fixed;
-    text-align: center;
-}
-
-.form-container-reg .reg-img h1 {
-    position: absolute;
-    top: 8%;
-    left: 40%;
-    font-size: 2.5rem;
-    color: #4361ee;
-}
-
-.form-container-reg .reg-img img {
-    width: 800px;
-}
-
 select {
     width: 100%;
     height: 3em;
@@ -400,29 +431,6 @@ select {
     outline: none;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     color: #0964b0;
-}
-
-.typewriter h1 {
-    overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: .15em solid #3a0ca3; /* The typwriter cursor */
-    white-space: nowrap; /* Keeps the content on a single line */
-    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
-    letter-spacing: .15em; /* Adjust as needed */
-    animation: 
-    typing 1.5s steps(40, end),
-    blink-caret .75s step-end infinite;
-}
-
-  /* The typing effect */
-@keyframes typing {
-    from { width: 0 }
-    to { width: 30% }
-}
-
-  /* The typewriter cursor effect */
-@keyframes blink-caret {
-    from, to { border-color: transparent }
-    50% { border-color: #3a0ca3; }
 }
 
 

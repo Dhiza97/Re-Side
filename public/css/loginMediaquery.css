@@ -22,8 +22,13 @@
     }
 
     /* Registraton form */
-    .register {
+    .form-container-reg .register {
+        
+    }
+
+    .form-container-reg {
         width: 100%;
+        padding-right: 0;
     }
 
     /* Select Log Section */

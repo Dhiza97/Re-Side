@@ -1897,3 +1897,115 @@ footer .foot .bottom-links .socials-icon .fb {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
+/* Profile page */
+.profile-container .bg-pic {
+    height: 300px;
+    width: 100%;
+    background: #3a0ca3;
+    position: relative;
+}
+
+.profile-container .profile-pic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: #757575;
+    position: absolute;
+    bottom: -30%;
+    left: 44%;
+}
+
+.profile-info {
+    width: 50%;
+    margin: 10% auto 0;
+}
+
+.profile-info h1 {
+    font-size: 2.5rem;
+    font-weight: lighter;
+    margin-bottom: 30px;
+}
+
+.profile-info hr {
+    margin-bottom: 30px;
+}
+
+.profile-info .names {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form .txt_field {
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.txt_field input {
+    width: 100%;
+    padding: 0 5px;
+    height: 40px;
+    font-size: 16px;
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.txt_field label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.txt_field span::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #3a0ca3;
+}
+
+.txt_field input:focus ~ label,
+.txt_field input:valid ~ label {
+    top: -5px;
+    color: #3a0ca3;
+}
+
+.txt_field input:focus ~ span::before,
+.txt_field input:valid ~ span::before {
+    width: 100%;
+}
+
+.profile-info button {
+    margin-right: 10px;
+    margin-bottom: 84px;
+    box-sizing: border-box;
+    padding: .7rem 1.7rem .7rem 1.7rem;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #3a0ca3;
+    font-family: Poppins, 'Source Sans Pro';
+    white-space: nowrap;
+    border: solid 0.1rem #3a0ca3;
+    background-color: #ffffff;
+    border-radius: 3rem;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.profile-info button:hover {
+    background-color: #3a0ca3;
+    color: white;
+}

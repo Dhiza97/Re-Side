@@ -7,20 +7,23 @@
     </div>
     <div class="profile-info">
         <h1>Profile Information</h1>
+        <hr>
 
         <form action="/profile" method="POST">
-            <div class="txt_field">
-                <input type="text" id="firstName" name="firstName" value="<%= user.firstName %>" required>
-                <span></span>
-                <label for="firstName">First Name</label>
+            <div class="names">
+                <div class="txt_field">
+                    <input type="text" id="firstName" name="firstName" value="<%= user.firstName %>" required>
+                    <span></span>
+                    <label for="firstName">First Name</label>
+                </div>
+                
+                <div class="txt_field">
+                    <input type="text" id="lastName" name="lastName" value="<%= user.lastName %>" required>
+                    <span></span>
+                    <label for="lastName">Last Name</label>
+                </div>
             </div>
             
-            <div class="txt_field">
-                <input type="text" id="lastName" name="lastName" value="<%= user.lastName %>" required>
-                <span></span>
-                <label for="lastName">Last Name</label>
-            </div>
-
             <div class="txt_field">
                 <input type="text" id="middleName" name="middleName" value="<%= user.middleName %>">
                 <span></span>

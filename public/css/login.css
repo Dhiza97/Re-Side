@@ -303,7 +303,6 @@ button[type="submit"]:hover {
 /* Registration Page */
 .form-container-reg {
     display: flex;
-    
 }
 
 .form-container-reg .reg-img {
@@ -326,7 +325,7 @@ button[type="submit"]:hover {
 
 .typewriter h1 {
     overflow: hidden; /* Ensures the content is not revealed until the animation */
-    border-right: .15em solid #3a0ca3; /* The typwriter cursor */
+    border-right: .15em solid #3a0ca3; /* The typewriter cursor */
     white-space: nowrap; /* Keeps the content on a single line */
     margin: 0 auto; /* Gives that scrolling effect as the typing happens */
     letter-spacing: .15em; /* Adjust as needed */

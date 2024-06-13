@@ -1900,20 +1900,50 @@ footer .foot .bottom-links .socials-icon .fb {
 
 /* Profile page */
 .profile-container .bg-pic {
-    height: 300px;
+    height: 400px;
     width: 100%;
-    background: #3a0ca3;
     position: relative;
+    box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.1), 5px 5px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Ensures the image doesn't overflow */
+}
+
+.profile-container .bg-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire container */
 }
 
 .profile-container .profile-pic {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background: #757575;
     position: absolute;
-    bottom: -30%;
+    top: 23%;
     left: 44%;
+    box-shadow: -5px -5px 5px rgba(0, 0, 0, 0.1), 5px 5px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    z-index: 22;
+}
+
+.profile-container .profile-pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the entire container */
+    border-radius: 50%; /* Ensures the image has rounded corners */
+}
+
+.edit-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.edit-icon svg {
+    width: 20px;
+    height: 20px;
 }
 
 .profile-info {
@@ -1931,7 +1961,7 @@ footer .foot .bottom-links .socials-icon .fb {
     margin-bottom: 30px;
 }
 
-.profile-info .names {
+.profile-info .fold {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -1960,6 +1990,7 @@ form .txt_field {
     color: #adadad;
     transform: translateY(-50%);
     font-size: 16px;
+    font-weight: lighter;
     pointer-events: none;
     transition: .5s;
 }
@@ -1983,6 +2014,68 @@ form .txt_field {
 .txt_field input:focus ~ span::before,
 .txt_field input:valid ~ span::before {
     width: 100%;
+}
+
+/* file upload button */
+input[type="file"] {
+    position: relative;
+    margin-left: 2px;
+    padding: 2px;
+    font-size: .9rem;
+}
+
+input[type="file"]:focus-within::file-selector-button,
+input[type="file"]:focus::file-selector-button {
+    outline: 2px solid #0964b0;
+    outline-offset: 2px;
+}
+
+input[type="file"]::file-selector-button {
+    width: 136px;
+    color: transparent;
+}
+
+/* Faked label styles and icon */
+input[type="file"]::before {
+    position: absolute;
+    pointer-events: none;
+    top: 10px;
+    left: 16px;
+    height: 20px;
+    width: 20px;
+    content: "";
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%230964B0'%3E%3Cpath d='M18 15v3H6v-3H4v3c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-3h-2zM7 9l1.41 1.41L11 7.83V16h2V7.83l2.59 2.58L17 9l-5-5-5 5z'/%3E%3C/svg%3E");
+}
+
+input[type="file"]::after {
+    position: absolute;
+    pointer-events: none;
+    top: 11px;
+    left: 40px;
+    color: #0964b0;
+    content: "Upload File";
+}
+
+input[type="file"]::file-selector-button {
+    font-size: .8rem;
+    border-radius: 4px;
+    padding: 0 16px;
+    height: 40px;
+    cursor: pointer;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.16);
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.05);
+    margin-right: 16px;
+    margin-bottom: 20px;
+    transition: background-color 200ms;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #f3f4f6;
+}
+
+input[type="file"]::file-selector-button:active {
+    background-color: #e5e7eb;
 }
 
 .profile-info button {

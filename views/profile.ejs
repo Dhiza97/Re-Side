@@ -1,106 +1,160 @@
 <%- include('partials/header') %>
-<div class="profile-container">
-    <div class="bg-pic">
+    <div class="profile-container">
+
         <div class="profile-pic">
-
+            <% if (user.profilePicture) { %>
+                <img src="<%= user.profilePicture %>" alt="Profile Picture" id="profilePicturePreview">
+            <% } else { %>
+                <img src="/assets/profile-pic.jpeg" alt="Profile Picture" id="profilePicturePreview">
+            <% } %>
         </div>
-    </div>
-    <div class="profile-info">
-        <h1>Profile Information</h1>
-        <hr>
 
-        <form action="/profile" method="POST">
-            <div class="names">
-                <div class="txt_field">
-                    <input type="text" id="firstName" name="firstName" value="<%= user.firstName %>" required>
-                    <span></span>
-                    <label for="firstName">First Name</label>
+        <div class="bg-pic">
+            <% if (user.backgroundPicture) { %>
+                <img src="<%= user.backgroundPicture %>" alt="Background Picture" id="backgroundPicturePreview">
+            <% } else { %>
+                <img src="/assets/background-pic.png" alt="Background Picture" id="backgroundPicturePreview">
+            <% } %>
+        </div>
+
+        <div class="profile-info">
+            <h1>Profile Information</h1>
+            <hr>
+
+            <form id="profileForm" action="/profile" method="POST" enctype="multipart/form-data">
+                <div class="fold">
+                    <div class="txt_field">
+                        <input type="text" id="firstName" name="firstName" value="<%= user.firstName %>" required>
+                        <span></span>
+                        <label for="firstName">First Name</label>
+                    </div>
+                    
+                    <div class="txt_field">
+                        <input type="text" id="lastName" name="lastName" value="<%= user.lastName %>" required>
+                        <span></span>
+                        <label for="lastName">Last Name</label>
+                    </div>
+
+                    <div class="txt_field">
+                        <input type="text" id="middleName" name="middleName" value="<%= user.middleName %>">
+                        <span></span>
+                        <label for="middleName">Middle Name</label>
+                    </div>
                 </div>
                 
                 <div class="txt_field">
-                    <input type="text" id="lastName" name="lastName" value="<%= user.lastName %>" required>
+                    <input type="email" id="email" name="email" value="<%= user.email %>" required>
                     <span></span>
-                    <label for="lastName">Last Name</label>
+                    <label for="email">Email</label>
                 </div>
-            </div>
-            
-            <div class="txt_field">
-                <input type="text" id="middleName" name="middleName" value="<%= user.middleName %>">
-                <span></span>
-                <label for="middleName">Middle Name</label>
-            </div>
 
-            <div class="txt_field">
-                <input type="email" id="email" name="email" value="<%= user.email %>" required>
-                <span></span>
-                <label for="email">Email</label>
-            </div>
+                <div class="txt_field">
+                    <input type="text" id="phone" name="phone" value="<%= user.phone %>">
+                    <span></span>
+                    <label for="phone">Phone</label>
+                </div>
 
-            <div class="txt_field">
-                <input type="text" id="phone" name="phone" value="<%= user.phone %>">
-                <span></span>
-                <label for="phone">Phone</label>
-            </div>
+                <div class="txt_field">
+                    <input type="text" id="address" name="address" value="<%= user.address %>">
+                    <span></span>
+                    <label for="address">Address</label>
+                </div>
 
-            <div class="txt_field">
-                <input type="text" id="address" name="address" value="<%= user.address %>">
-                <span></span>
-                <label for="address">Address</label>
-            </div>
+                <div class="fold">
+                    <div class="txt_field">
+                        <input type="text" id="city" name="city" value="<%= user.city %>">
+                        <span></span>
+                        <label for="city">City</label>
+                    </div>
 
-            <div class="txt_field">
-                <input type="text" id="city" name="city" value="<%= user.city %>">
-                <span></span>
-                <label for="city">City</label>
-            </div>
+                    <div class="txt_field">
+                        <input type="text" id="state" name="state" value="<%= user.state %>">
+                        <span></span>
+                        <label for="state">State</label>
+                    </div>
+                </div>
 
-            <div class="txt_field">
-                <input type="text" id="state" name="state" value="<%= user.state %>">
-                <span></span>
-                <label for="state">State</label>
-            </div>
+                <div class="txt_field">
+                    <input type="text" id="country" name="country" value="<%= user.country %>">
+                    <span></span>
+                    <label for="country">Country</label>
+                </div>
 
-            <div class="txt_field">
-                <input type="text" id="country" name="country" value="<%= user.country %>">
-                <span></span>
-                <label for="country">Country</label>
-            </div>
+                <div class="fold">
+                    <div class="txt_field">
+                        <input type="file" name="profilePicture" id="profilePicture" onchange="previewImage('profilePicture', 'profilePicturePreview')">
+                        <span></span>
+                        <label for="profilePicture">Profile Picture</label>
+                    </div>
+                    <div class="txt_field">
+                        <input type="file" name="backgroundPicture" id="backgroundPicture" onchange="previewImage('backgroundPicture', 'backgroundPicturePreview')">
+                        <span></span>
+                        <label for="backgroundPicture">Background Picture</label>
+                    </div>
+                </div>
 
-            <div class="txt_field">
-                <input type="password" id="currentPassword" name="currentPassword">
-                <span></span>
-                <label for="currentPassword">Current Password</label>
-            </div>
+                <div class="fold">
+                    <div class="txt_field">
+                        <input type="password" id="currentPassword" name="currentPassword">
+                        <span></span>
+                        <label for="currentPassword">Current Password</label>
+                    </div>
 
-            <div class="txt_field">
-                <input type="password" id="newPassword" name="newPassword">
-                <span></span>
-                <label for="newPassword">New Password</label>
-            </div>
-            
-            <div class="txt_field">
-                <input type="password" id="confirmPassword" name="confirmPassword">
-                <span></span>
-                <label for="confirmPassword">Confirm New Password</label>
-            </div>
+                    <div class="txt_field">
+                        <input type="password" id="newPassword" name="newPassword">
+                        <span></span>
+                        <label for="newPassword">New Password</label>
+                    </div>
 
-            <button type="submit">Update Profile</button>
-        </form>
+                    <div class="txt_field">
+                        <input type="password" id="confirmPassword" name="confirmPassword">
+                        <span></span>
+                        <label for="confirmPassword">Confirm Password</label>
+                    </div>
+                </div>
+
+                <button type="submit">Update Profile</button>
+            </form>
+        </div>
     </div>
-    
-</div>
-<script>
-    // Sign In & Sign Up Success message
-document.addEventListener('DOMContentLoaded', function() {
-    const successMessage = document.getElementById('success-message');
-    if (successMessage) {
-        setTimeout(() => {
-            successMessage.style.transition = 'opacity 1s';
-            successMessage.style.opacity = '0';
-            setTimeout(() => successMessage.remove(), 1000);
-        }, 3000); // Adjust the time as needed
-    }
-});
-</script>
+
+    <script>
+        function previewImage(inputId, previewId) {
+            const input = document.getElementById(inputId);
+            const preview = document.getElementById(previewId);
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    preview.src = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        document.getElementById('profileForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+
+            try {
+                const response = await fetch('/profile', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    alert(result.success);
+                } else {
+                    alert(result.error);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
 </body>
 </html>

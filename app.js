@@ -59,6 +59,12 @@ app.use((req, res, next) => {
     next();
 });
 
+//middleware that makes user available in all views
+app.use((req, res, next) => {
+    res.locals.user = req.session.user || null;
+    next();
+});
+
 // Database Connection
 mongoose.connect(process.env.DB_CONNECTION_STRING)
     .then(() => console.log('E don connect to MongoDB'))
@@ -76,7 +82,9 @@ import editPropertyRoute from './routes/editPropertyRoute.js';
 import viewPropertyRoute from './routes/viewPropertiesRoute.js';
 import propertyDetailsRoute from './routes/propertyDetailsRoute.js';
 import profileRoute from './routes/profileRoute.js';
+import faqRoute from './routes/faqRoute.js';
 import logoutRoute from './routes/logoutRoute.js'
+import adminRoute from './routes/adminRoute.js';
 
 // Define routes
 app.use('/', homeRoute);
@@ -84,6 +92,7 @@ app.use('/signup', signupRoute);
 app.use('/signin', signinRoute);
 app.use('/signupagent', signupagentRoute);
 app.use('/selectlog', selectlog);
+app.use('/faq', faqRoute);
 app.use('/logout', logoutRoute);
 
 // Routes that require authentication
@@ -93,6 +102,9 @@ app.use('/property', ensureAuthenticated, editPropertyRoute);
 app.use('/viewproperties', ensureAuthenticated, viewPropertyRoute);
 app.use('/propertydetails', ensureAuthenticated, propertyDetailsRoute);
 app.use('/profile', ensureAuthenticated, profileRoute);
+
+// Admin routes
+app.use(adminRoute);
 
 const PORT = process.env.PORT || 5050
 app.listen(PORT, () => {

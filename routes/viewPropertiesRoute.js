@@ -13,7 +13,7 @@ router.get('/', ensureAuthenticated, async (req, res) => {
             query.purchaseType = filter.toLowerCase();
         }
 
-        const properties = await Property.find(query).populate('agent').sort({ createdAt: -1 });
+        const properties = await Property.find(query, { status: 'approved' }).populate('agent').sort({ createdAt: -1 });
         const firstName = req.session.firstName || ''; // Get firstName from session, default to empty string if not present
 
         res.render('viewProperties', { properties, firstName, filter });

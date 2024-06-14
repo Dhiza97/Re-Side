@@ -13,6 +13,11 @@ const propertySchema = new mongoose.Schema({
         type: String,
         enum: ['rent', 'sale']
     },
+    status: {
+        type: String,
+        enum: ['pending', 'approved', 'rejected'],
+        default: 'pending'
+    },
     address: {
         type: String,
         required: true
@@ -63,7 +68,7 @@ const propertySchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Agent',
         required: true
-    }
+    },
 }, {
     timestamps: true
 });

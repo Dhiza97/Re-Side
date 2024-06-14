@@ -34,15 +34,6 @@ const upload = multer({ storage: storage });
 
 export { upload };
 
-// Middleware to check if agent is logged in
-// export const checkIfAgentLoggedIn = (req, res, next) => {
-//     if (req.session.agent) {
-//         next();
-//     } else {
-//         res.redirect('/signin');
-//     }
-// };
-
 // Middleware to check if user or agent is logged in
 export const ensureAuthenticated = (req, res, next) => {
     if (req.session.user || req.session.agent) {
@@ -52,3 +43,13 @@ export const ensureAuthenticated = (req, res, next) => {
         res.redirect('/signin');
     }
 };
+
+// Ensure user is an admin
+export function ensureAdmin(req, res, next) {
+    if (req.user && req.user.isAdmin) {
+        return next();
+    } else {
+        req.flash('error_msg', 'You are not authorized to view this page');
+        res.redirect('/');
+    }
+}

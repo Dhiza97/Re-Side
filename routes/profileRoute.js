@@ -77,7 +77,8 @@ router.post('/', ensureAuthenticated, upload.fields([{ name: 'profilePicture' },
         }
 
         await user.save();
-        res.status(200).json({ success: 'Profile updated successfully' });
+        // res.status(200).json({ success: 'Profile updated successfully' });
+        req.flash('success_msg', 'Profile updated successfully');
     } catch (error) {
         console.error('Error updating profile:', error);
         res.status(500).json({ error: 'An error occurred. Please try again.' });

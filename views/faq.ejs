@@ -1,38 +1,5 @@
 <%- include('partials/header') %>
 
-    <div class="faq-container">
-        <h1>Frequently Asked Questions</h1>
-        <% if (faqs.length > 0) { %>
-            <ul>
-                <% faqs.forEach(faq => { %>
-                    <li>
-                        <h3><%= faq.question %></h3>
-                        <p><%= faq.answer %></p>
-                    </li>
-                <% }) %>
-            </ul>
-        <% } else { %>
-            <p>No FAQs available</p>
-        <% } %>
-    </div>
-
-    <% if (user && user.isAdmin) { %> <!-- Only show this section to admin users -->
-        <div class="add-faq-container">
-            <h2>Add New FAQ</h2>
-            <form action="/faq" method="POST">
-                <div class="txt_field">
-                    <input type="text" id="question" name="question" required>
-                    <span></span>
-                    <label for="question">Question</label>
-                </div>
-                <div class="txt_field">
-                    <textarea id="answer" name="answer" required></textarea>
-                    <span></span>
-                    <label for="answer">Answer</label>
-                </div>
-                <button type="submit">Add FAQ</button>
-            </form>
-        </div>
-    <% } %>
+    <h1>Frequently Asked Questions</h1>
 
 <%- include('partials/footer') %>

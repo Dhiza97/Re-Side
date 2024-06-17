@@ -6,6 +6,7 @@ import dotenv from 'dotenv'
 import flash from 'connect-flash';
 import MongoStore from 'connect-mongo';
 import { ensureAuthenticated } from './middleware/authMiddleware.js';
+import { ensureAdmin } from './middleware/authMiddleware.js';
 
 const app = express()
 
@@ -82,9 +83,10 @@ import editPropertyRoute from './routes/editPropertyRoute.js';
 import viewPropertyRoute from './routes/viewPropertiesRoute.js';
 import propertyDetailsRoute from './routes/propertyDetailsRoute.js';
 import profileRoute from './routes/profileRoute.js';
-import faqRoute from './routes/faqRoute.js';
 import logoutRoute from './routes/logoutRoute.js'
 import adminRoute from './routes/adminRoute.js';
+import adminSigninRoute from './routes/adminSigninRoute.js';
+import adminRegisterRoute from './routes/adminRegisterRoute.js';
 
 // Define routes
 app.use('/', homeRoute);
@@ -92,8 +94,9 @@ app.use('/signup', signupRoute);
 app.use('/signin', signinRoute);
 app.use('/signupagent', signupagentRoute);
 app.use('/selectlog', selectlog);
-app.use('/faq', faqRoute);
 app.use('/logout', logoutRoute);
+app.use('/admin/signin', adminSigninRoute);
+app.use('/admin/register', adminRegisterRoute);
 
 // Routes that require authentication
 app.use('/dashboard', ensureAuthenticated, dashboard);

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Sign In</title>
+    <link rel="stylesheet" href="/path/to/your/styles.css"> <!-- Update this with your actual stylesheet path -->
+</head>
+<body>
+    <div class="container">
+        <h1>Admin Sign In</h1>
+        
+        <% if (errorMessage) { %>
+            <div class="alert alert-danger">
+                <%= errorMessage %>
+            </div>
+        <% } %>
+
+        <form action="/admin/signin" method="POST">
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Sign In</button>
+        </form>
+    </div>
+
+    <script src="/path/to/your/scripts.js"></script> <!-- Update this with your actual script path -->
+</body>
+</html>

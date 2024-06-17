@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin - Review Properties</title>
+</head>
+<body>
+    <h1>Pending Properties</h1>
+
+    <% if (properties.length > 0) { %>
+        <ul>
+            <% properties.forEach(property => { %>
+                <li>
+                    <h3><%= property.propertyName %></h3>
+                    <p><%= property.description %></p>
+                    <form action="/admin/properties/approve/<%= property._id %>" method="POST">
+                        <button type="submit">Approve</button>
+                    </form>
+                    <form action="/admin/properties/reject/<%= property._id %>" method="POST">
+                        <button type="submit">Reject</button>
+                    </form>
+                </li>
+            <% }) %>
+        </ul>
+    <% } else { %>
+        <p>No pending properties</p>
+    <% } %>
+</body>
+</html>

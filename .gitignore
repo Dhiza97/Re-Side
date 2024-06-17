@@ -1,6 +1,2 @@
 node_modules
 .env
-createAdminUser.js
-routes/adminRegisterRoute.js
-routes/adminSigninRoute.js
-routes/adminRoute.js

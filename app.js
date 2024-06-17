@@ -83,6 +83,7 @@ import editPropertyRoute from './routes/editPropertyRoute.js';
 import viewPropertyRoute from './routes/viewPropertiesRoute.js';
 import propertyDetailsRoute from './routes/propertyDetailsRoute.js';
 import profileRoute from './routes/profileRoute.js';
+import faqRoute from './routes/faqRoute.js'
 import logoutRoute from './routes/logoutRoute.js'
 import adminRoute from './routes/adminRoute.js';
 import adminSigninRoute from './routes/adminSigninRoute.js';
@@ -94,6 +95,7 @@ app.use('/signup', signupRoute);
 app.use('/signin', signinRoute);
 app.use('/signupagent', signupagentRoute);
 app.use('/selectlog', selectlog);
+app.use('/faq', faqRoute)
 app.use('/logout', logoutRoute);
 app.use('/admin/signin', adminSigninRoute);
 app.use('/admin/register', adminRegisterRoute);

@@ -42,6 +42,7 @@ router.post('/', upload.array('photos'), async (req, res) => {
             propertyName,
             propertyType,
             purchaseType,
+            status: 'pending',
             address,
             city,
             state,

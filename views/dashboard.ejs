@@ -117,6 +117,7 @@
                                         <th>Purchase Type</th>
                                         <th>Amount</th>
                                         <th>Agent Name</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
@@ -129,6 +130,7 @@
                                             <td><%= property.purchaseType %></td>
                                             <td>₦<%= property.price %></td>
                                             <td><%= property.agentName %></td>
+                                            <td><%= property.status %></td>
                                             <td>
                                                 <form action="/property/<%= property._id %>/edit" method="get" style="display:inline;">
                                                     <button type="submit">Edit</button>

@@ -14,6 +14,7 @@ router.get('/', (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const { email, password } = req.body;
+        console.log(`Attempting login for email: ${email}`);
 
         // Find the user by email
         const user = await User.findOne({ email });
@@ -21,6 +22,8 @@ router.post('/', async (req, res) => {
         if (user) {
             // Compare the provided password with the hashed password stored in the database
             const isPasswordValid = await bcrypt.compare(password, user.password);
+            console.log(`User found. Password valid: ${isPasswordValid}`);
+
             if (!isPasswordValid) {
                 return res.render('signin', { errorMessage: 'Invalid email or password' });
             }
@@ -39,12 +42,16 @@ router.post('/', async (req, res) => {
         } else {
             // Check in the agent collection if user not found in user collection
             const agent = await Agent.findOne({ email });
+            console.log(`Agent found: ${!!agent}`);
+
             if (!agent) {
                 return res.render('signin', { errorMessage: 'Invalid email or password' });
             }
 
             // Compare the provided password with the hashed password stored in the database
             const isPasswordValid = await bcrypt.compare(password, agent.password);
+            console.log(`Agent password valid: ${isPasswordValid}`);
+            
             if (!isPasswordValid) {
                 // If passwords don't match, return error message
                 return res.render('signin', { errorMessage: 'Invalid email or password' });

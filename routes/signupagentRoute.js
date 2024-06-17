@@ -18,8 +18,10 @@ router.get('/', (req, res) => {
 // POST route to handle form submissions for signup
 router.post('/', async (req, res) => {
     try {
+        
         // Extract user data from the request body
         const { firstName, lastName, email, phone, password } = req.body;
+
         // Create a new user
         const user = new User({
             firstName,
@@ -28,12 +30,12 @@ router.post('/', async (req, res) => {
             phone,
             password
         });
+
         // Save the user to the database
         await user.save();
-        // Redirect the user to the home page
 
+        // Redirect the user to the home page
         req.flash('success_msg', 'You have successfully signed up!');
-        
         res.redirect('/signin');
     } catch (error) {
         console.error('Error during signup:', error);

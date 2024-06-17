@@ -46,10 +46,10 @@ export const ensureAuthenticated = (req, res, next) => {
 
 // Ensure user is an admin
 export function ensureAdmin(req, res, next) {
-    if (req.user && req.user.isAdmin) {
+    if (req.session.admin) {
         return next();
     } else {
         req.flash('error_msg', 'You are not authorized to view this page');
-        res.redirect('/');
+        res.redirect('/admin/signin');
     }
 }

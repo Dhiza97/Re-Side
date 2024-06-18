@@ -120,3 +120,12 @@ function toggleMenu() {
     menu.classList.toggle("open")
     icon.classList.toggle("open")
 }
+
+// Faq section
+const faqs = document.querySelectorAll('.faq-contents')
+
+faqs.forEach(faq => {
+    faq.addEventListener('click', () => {
+        faq.classList.toggle('active')
+    })
+})

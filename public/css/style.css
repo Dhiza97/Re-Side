@@ -2102,3 +2102,74 @@ input[type="file"]::file-selector-button:active {
     background-color: #3a0ca3;
     color: white;
 }
+
+/* FAQ section */
+#faq {
+    min-height: 100vh;
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.faq-title {
+    font-size: 3rem;
+    margin: 2rem 0;
+    font-weight: 500;
+}
+
+.faq-contents {
+    max-width: 700px;
+    margin-top: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #3a0ca3;
+    cursor: pointer;
+}
+
+.questions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.questions h3 {
+    font-size: 1.3rem;
+    color: #3a0ca3;
+    font-weight: 400;
+}
+
+.answer {
+    max-height: 0;
+    overflow: hidden;
+}
+
+.answer p {
+    padding-top: 1rem;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.faq-contents.active .answer {
+    max-height: 300px;
+    animation: fade 1s ease-in-out;
+}
+
+.faq-contents.active svg {
+    transform: rotate(180deg);
+}
+
+svg {
+    transition: transform 0.5s ease-in;
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}

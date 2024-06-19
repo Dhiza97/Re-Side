@@ -5,39 +5,38 @@
     <title>Admin - Review Properties</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
+
 <body>
     <div class="view-house-listings">
+
         <div class="views-header">
             <h1>Pending Properties</h1>
         </div>
         
-    
-        <% if (properties.length > 0) { %>
-            <div class="view-properties">
-                <% properties.forEach(property => { %>
-                        <div class="list">
-                            <img src="<%= property.photos.length > 0 ? '/' + property.photos[0] : '/uploads/default.jpeg' %>" alt="<%= property.propertyName %>" class="main-img">
-                            <p class="price">₦<%= property.price.toLocaleString() %> <span><%= property.purchaseType %></span></p>
-                            <p class="name"><%= property.propertyName %></p>
-                            <p class="address"><%= property.city %>, <%= property.state %></p>
-                            <div class="beds-bath">
-                                <span class="beds"><img src="/assets/icon-bed-DST.png" alt=""> <%= property.bedroom %> Beds</span> &nbsp;
-                                <span class="bath"><img src="/assets/icon-bathroom-nSw.png" alt=""> <%= property.bathroom %> Bath</span>
-                                <a href="/propertydetails/<%= property._id %>" class="see-more">View</a>
-                            </div>
-                            <form action="/admin/properties/approve/<%= property._id %>" method="POST">
-                                <button type="submit">Approve</button>
-                            </form>
-                            <form action="/admin/properties/reject/<%= property._id %>" method="POST">
-                                <button type="submit">Reject</button>
-                            </form>
-                    <% }) %>
-                        </div>
+        <div class="view-properties">
+            <% properties.forEach(property => { %>
+                <div class="list">
+                    <img src="<%= property.photos.length > 0 ? '/' + property.photos[0] : '/uploads/default.jpeg' %>" alt="<%= property.propertyName %>" class="main-img">
+                    <p class="price">₦<%= property.price.toLocaleString() %> <span><%= property.purchaseType %></span></p>
+                    <p class="name"><%= property.propertyName %></p>
+                    <p class="address"><%= property.city %>, <%= property.state %></p>
+                    <div class="beds-bath">
+                        <span class="beds"><img src="/assets/icon-bed-DST.png" alt=""> <%= property.bedroom %> Beds</span> &nbsp;
+                        <span class="bath"><img src="/assets/icon-bathroom-nSw.png" alt=""> <%= property.bathroom %> Bath</span>
+                    </div>
+
+                    <div class="choice">
+                        <form action="/admin/properties/approve/<%= property._id %>" method="POST">
+                            <button type="submit">Approve</button>
+                        </form>
+                        <form action="/admin/properties/reject/<%= property._id %>" method="POST">
+                            <button type="submit">Reject</button>
+                        </form>
+                    </div>
                 </div>
-                <% } else { %>
-                    <p>No pending properties</p>
-                <% } %>
-            </div>
+            <% }) %>
+        </div>
+
     </div>
 </body>
 </html>

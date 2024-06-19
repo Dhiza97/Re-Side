@@ -1,11 +1,11 @@
 <%- include('partials/header', { firstName: firstName }) %>
-    
+        
     <div class="view-house-listings">
         <div class="views-header">
             <div>
                 <h1>All Properties</h1>
             </div>
-            
+
             <div class="btns">
                 <button onclick="filterProperties('All')" class="<%= filter === 'All' ? 'active' : '' %>">All</button>
                 <button onclick="filterProperties('Sale')" class="<%= filter === 'Sale' ? 'active' : '' %>">Sale</button>

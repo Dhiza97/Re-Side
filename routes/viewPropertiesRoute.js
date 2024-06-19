@@ -7,13 +7,13 @@ const router = express.Router();
 router.get('/', ensureAuthenticated, async (req, res) => {
     try {
         const filter = req.query.filter || 'All';
-        let query = {};
+        let query = { status: 'approved' }; // Ensure status is approved
 
         if (filter !== 'All') {
             query.purchaseType = filter.toLowerCase();
         }
 
-        const properties = await Property.find(query, { status: 'approved' }).populate('agent').sort({ createdAt: -1 });
+        const properties = await Property.find(query).populate('agent').sort({ createdAt: -1 });
         const firstName = req.session.firstName || ''; // Get firstName from session, default to empty string if not present
 
         res.render('viewProperties', { properties, firstName, filter });

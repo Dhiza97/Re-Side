@@ -1952,20 +1952,6 @@ footer .foot .bottom-links .socials-icon .fb {
     border-radius: 50%; /* Ensures the image has rounded corners */
 }
 
-.edit-icon {
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    border-radius: 50%;
-    padding: 5px;
-    cursor: pointer;
-}
-
-.edit-icon svg {
-    width: 20px;
-    height: 20px;
-}
-
 .profile-info {
     width: 50%;
     margin: 10% auto 0;
@@ -2046,7 +2032,7 @@ input[type="file"] {
 
 input[type="file"]:focus-within::file-selector-button,
 input[type="file"]:focus::file-selector-button {
-    outline: 2px solid #0964b0;
+    outline: 2px solid #3a0ba3;
     outline-offset: 2px;
 }
 
@@ -2072,7 +2058,7 @@ input[type="file"]::after {
     pointer-events: none;
     top: 11px;
     left: 40px;
-    color: #0964b0;
+    color: #3a0ca3;
     content: "Upload File";
 }
 
@@ -2098,6 +2084,7 @@ input[type="file"]::file-selector-button:active {
     background-color: #e5e7eb;
 }
 
+/* Profile section */
 .profile-info button {
     margin-right: 10px;
     margin-bottom: 84px;

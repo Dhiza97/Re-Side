@@ -9,8 +9,8 @@ router.get('/', async (req, res) => {
         // Get user's first name from session (if available)
         const firstName = req.session.firstName || null;
 
-        // Fetch the 6 latest properties from the database
-        const latestProperties = await Property.find().sort({ createdAt: -1 }).limit(6);
+        // Fetch the 6 latest approved properties from the database
+        const latestProperties = await Property.find({ status: 'approved' }).sort({ createdAt: -1 }).limit(6);
 
         // Render home.ejs and pass the latest properties and first name
         res.render('home', { firstName, properties: latestProperties });

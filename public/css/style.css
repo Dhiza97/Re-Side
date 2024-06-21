@@ -2180,3 +2180,41 @@ svg {
         transform: translateY(0px);
     }
 }
+
+/* Admin Buttons */
+.choice {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 5px 10px 0;
+}
+
+.choice button {
+    padding: 5px 8px;
+    border: none;
+    border-radius: 20px;
+    background: #3a0ca3;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #fff;
+    font-family: Poppins, 'Source Sans Pro';
+    font-size: .7rem;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.choice .approve:hover {
+    background: #fff;
+    color: #3a0ca3;
+    border: solid 1px #3a0ca3;
+}
+
+.choice .reject {
+    background: red;
+    color: #fff;
+}
+
+.choice .reject:hover {
+    background: #fff;
+    color: red;
+    border: solid 1px red;
+}

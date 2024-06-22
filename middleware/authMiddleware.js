@@ -1,7 +1,11 @@
 import jwt from 'jsonwebtoken';
 import multer from 'multer';
 import Agent from '../models/agentSchema.js';
+import dotenv from 'dotenv';
 
+dotenv.config();
+
+//Token Handling
 export const generateToken = (payload) => {
     return jwt.sign(payload, process.env.JWT_SECRET, { expiresIn: '1h' });
 };
@@ -37,7 +41,7 @@ export { upload };
 // Middleware to check if user or agent is logged in
 export const ensureAuthenticated = (req, res, next) => {
     if (req.session.user || req.session.agent) {
-        next();
+        return next();
     } else {
         req.flash('error_msg', 'Please log in to view the page');
         res.redirect('/signin');
@@ -45,11 +49,11 @@ export const ensureAuthenticated = (req, res, next) => {
 };
 
 // Ensure user is an admin
-export function ensureAdmin(req, res, next) {
+export const ensureAdmin = (req, res, next) => {
     if (req.session.admin) {
         return next();
     } else {
         req.flash('error_msg', 'You are not authorized to view this page');
         res.redirect('/admin/signin');
     }
-}
+};

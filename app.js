@@ -30,7 +30,7 @@ app.use(session({
         autoRemove: 'native' // Default behavior
     }),
     cookie: {
-        maxAge: 10 * 60 * 1000 // 10 minutes
+        maxAge: 1000 * 60 * 60 *24 // 1 Day
     }
 }));
 
